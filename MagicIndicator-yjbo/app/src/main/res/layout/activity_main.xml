@@ -16,7 +16,11 @@
     <yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator
         android:id="@+id/magic_indicator3"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        android:scrollbars="none"/>
     <yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator
         android:id="@+id/magic_indicator4"
         android:layout_width="match_parent"
@@ -25,6 +29,10 @@
         android:id="@+id/magic_indicator5"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
+    <yjbo.yy.magicindicator_yjbo.videoUtil.LandLayoutVideo
+        android:id="@+id/detail_player"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
     <yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator
         android:id="@+id/magic_indicator6"
         android:layout_width="match_parent"

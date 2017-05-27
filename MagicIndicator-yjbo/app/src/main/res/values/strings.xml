@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MagicIndicator-yjbo</string>
+    <dimen name="radius">20dp</dimen>
+    <dimen name="image_size">200dp</dimen>
 </resources>
