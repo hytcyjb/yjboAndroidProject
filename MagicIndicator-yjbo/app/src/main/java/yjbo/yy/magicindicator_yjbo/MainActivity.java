@@ -45,8 +45,8 @@ import yjbo.yy.magicindicator_yjbo.videoUtil.SampleListener;
  */
 
 public class MainActivity extends AppCompatActivity {
-    private static final String[] CHANNELS = new String[]{"介绍", "测评", "相关知识", "评论"};
-//    private static final String[] CHANNELS = new String[]{"CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "HONEYCOMB", "ICE_CREAM_SANDWICH", "JELLY_BEAN", "KITKAT", "LOLLIPOP", "M", "NOUGAT"};
+//    private static final String[] CHANNELS = new String[]{"介绍", "测评", "相关知识", "评论"};
+    private static final String[] CHANNELS = new String[]{"CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "HONEYCOMB", "ICE_CREAM_SANDWICH", "JELLY_BEAN", "KITKAT", "LOLLIPOP", "M", "NOUGAT"};
     private List<String> mDataList = Arrays.asList(CHANNELS);
     private ExamplePagerAdapter mExamplePagerAdapter = new ExamplePagerAdapter(mDataList);
     //推荐使用StandardGSYVideoPlayer，功能一致
