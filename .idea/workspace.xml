@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f37cfb0-f890-49b7-853b-95954b2d8e7e" name="Default" comment=" 基于此做矩形的四周圆角加边框的功能；">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CalendarExaple-master/.gitignore" afterPath="$PROJECT_DIR$/CalendarExaple-master/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CalendarExaple-master/mylibrary/src/main/java/com/codbking/calendar/CalendarDateView.java" afterPath="$PROJECT_DIR$/CalendarExaple-master/mylibrary/src/main/java/com/codbking/calendar/CalendarDateView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CalendarExaple-master/mylibrary/src/main/java/com/codbking/calendar/CalendarView.java" afterPath="$PROJECT_DIR$/CalendarExaple-master/mylibrary/src/main/java/com/codbking/calendar/CalendarView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MagicIndicator-yjbo/.gitignore" afterPath="$PROJECT_DIR$/MagicIndicator-yjbo/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SystemBarTintyjbo/.gitignore" afterPath="$PROJECT_DIR$/SystemBarTintyjbo/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yjboImageCanvas/.gitignore" afterPath="$PROJECT_DIR$/yjboImageCanvas/.gitignore" />
+    <list default="true" id="9f37cfb0-f890-49b7-853b-95954b2d8e7e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CalendarExaple-master/settings.gradle" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +22,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/yjboImageCanvas/app/src/main/java/com/yy/yjbo/yjboimagecanvas/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
@@ -76,7 +72,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.gradle" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CalendarExaple-master/settings.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -170,44 +166,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="yjboAndroidProject" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yjboAndroidProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yjboAndroidProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yjboAndroidProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yjboAndroidProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SystemBarTintyjbo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yjboAndroidProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yjboAndroidProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CalendarExaple-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -533,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496322200990</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="111">
+      <created>1497366902296</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1497366902297</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -581,7 +546,8 @@
     <MESSAGE value="将gradle添加上去，方便下载查看" />
     <MESSAGE value="对沉浸式进行了深入的了解" />
     <MESSAGE value=" 基于此做矩形的四周圆角加边框的功能；" />
-    <option name="LAST_COMMIT_MESSAGE" value=" 基于此做矩形的四周圆角加边框的功能；" />
+    <MESSAGE value="111" />
+    <option name="LAST_COMMIT_MESSAGE" value="111" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -741,18 +707,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CalendarExaple-master/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yjboImageCanvas/app/src/main/java/com/yy/yjbo/yjboimagecanvas/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalendarExaple-master/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
