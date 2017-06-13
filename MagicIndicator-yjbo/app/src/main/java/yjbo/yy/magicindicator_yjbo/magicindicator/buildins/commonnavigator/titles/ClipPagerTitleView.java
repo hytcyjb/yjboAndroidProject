@@ -1,10 +1,14 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli;
+package yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.titles;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.view.View;
+
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.UIUtil;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
+
 
 /**
  * 类似今日头条切换效果的指示器标题

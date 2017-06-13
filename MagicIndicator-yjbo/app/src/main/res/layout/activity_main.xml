@@ -4,49 +4,46 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator
+    <yjbo.yy.magicindicator_yjbo.magicindicator.MagicIndicator
         android:id="@+id/magic_indicator1"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 
-    <yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator
+    <yjbo.yy.magicindicator_yjbo.magicindicator.MagicIndicator
         android:id="@+id/magic_indicator2"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
-    <yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator
+    <yjbo.yy.magicindicator_yjbo.magicindicator.MagicIndicator
         android:id="@+id/magic_indicator3"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:divider="@null"
-        android:fadingEdge="none"
-        android:overScrollMode="never"
-        android:scrollbars="none"/>
-    <yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator
+        android:layout_height="50dp"/>
+    <yjbo.yy.magicindicator_yjbo.magicindicator.MagicIndicator
         android:id="@+id/magic_indicator4"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
-    <yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator
+    <yjbo.yy.magicindicator_yjbo.magicindicator.MagicIndicator
         android:id="@+id/magic_indicator5"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
     <yjbo.yy.magicindicator_yjbo.videoUtil.LandLayoutVideo
         android:id="@+id/detail_player"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="200dp" />
-    <yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator
+    <yjbo.yy.magicindicator_yjbo.magicindicator.MagicIndicator
         android:id="@+id/magic_indicator6"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
-    <yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator
+    <yjbo.yy.magicindicator_yjbo.magicindicator.MagicIndicator
         android:id="@+id/magic_indicator7"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
-    <yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator
+    <yjbo.yy.magicindicator_yjbo.magicindicator.MagicIndicator
         android:id="@+id/magic_indicator8"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="5dp"/>
-    <yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator
+    <yjbo.yy.magicindicator_yjbo.magicindicator.MagicIndicator
         android:id="@+id/magic_indicator9"
         android:layout_width="match_parent"
         android:layout_height="50dp" />

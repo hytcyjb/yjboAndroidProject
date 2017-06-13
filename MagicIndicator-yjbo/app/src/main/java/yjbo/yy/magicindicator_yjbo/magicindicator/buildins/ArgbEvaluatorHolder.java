@@ -1,4 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli.kind2;
+package yjbo.yy.magicindicator_yjbo.magicindicator.buildins;
 
 
 /**

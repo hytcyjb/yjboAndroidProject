@@ -1,4 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli;
+package yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs;
 
 import android.content.Context;
 import android.database.DataSetObservable;

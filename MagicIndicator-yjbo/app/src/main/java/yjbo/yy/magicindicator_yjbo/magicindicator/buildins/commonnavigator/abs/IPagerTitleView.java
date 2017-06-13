@@ -1,4 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli;
+package yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs;
 
 /**
  * 抽象的指示器标题，适用于CommonNavigator

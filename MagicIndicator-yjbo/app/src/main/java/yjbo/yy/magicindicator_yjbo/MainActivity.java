@@ -21,19 +21,20 @@ import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 import java.util.Arrays;
 import java.util.List;
 
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.ClipPagerTitleView;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.CommonNavigator;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.CommonNavigatorAdapter;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.IPagerIndicator;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.IPagerTitleView;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.MagicIndicator;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.UIUtil;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.ViewPagerHelper;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.kind2.BezierPagerIndicator;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.kind2.LinePagerIndicator;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.kind2.SimplePagerTitleView;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.kind2.TriangularPagerIndicator;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.kind2.WrapPagerIndicator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.MagicIndicator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.ViewPagerHelper;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.UIUtil;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.CommonNavigator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.indicators.BezierPagerIndicator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.indicators.TriangularPagerIndicator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.indicators.WrapPagerIndicator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
 import yjbo.yy.magicindicator_yjbo.videoUtil.LandLayoutVideo;
 import yjbo.yy.magicindicator_yjbo.videoUtil.SampleListener;
 
@@ -45,8 +46,8 @@ import yjbo.yy.magicindicator_yjbo.videoUtil.SampleListener;
  */
 
 public class MainActivity extends AppCompatActivity {
-    private static final String[] CHANNELS = new String[]{"介绍", "测评", "相关知识", "评论"};
-//    private static final String[] CHANNELS = new String[]{"CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "HONEYCOMB", "ICE_CREAM_SANDWICH", "JELLY_BEAN", "KITKAT", "LOLLIPOP", "M", "NOUGAT"};
+//    private static final String[] CHANNELS = new String[]{"介绍", "测评", "相关知识", "评论"};
+    private static final String[] CHANNELS = new String[]{"CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "HONEYCOMB", "ICE_CREAM_SANDWICH", "JELLY_BEAN", "KITKAT", "LOLLIPOP", "M", "NOUGAT"};
     private List<String> mDataList = Arrays.asList(CHANNELS);
     private ExamplePagerAdapter mExamplePagerAdapter = new ExamplePagerAdapter(mDataList);
     //推荐使用StandardGSYVideoPlayer，功能一致
@@ -303,44 +304,37 @@ public class MainActivity extends AppCompatActivity {
     }
     private void initMagicIndicator3() {
         MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator3);
-        magicIndicator.setBackgroundColor(Color.GREEN);//背景色
+        magicIndicator.setBackgroundColor(Color.BLACK);
         CommonNavigator commonNavigator = new CommonNavigator(this);
         commonNavigator.setAdjustMode(true);
-//        commonNavigator.setSkimOver(true);
-//        commonNavigator.setScrollPivotX(0.25f);
-//        int padding = UIUtil.getScreenWidth(this) / 2;
-//        commonNavigator.setRightPadding(padding);
-//        commonNavigator.setLeftPadding(padding);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
 
             @Override
             public int getCount() {
-                return mDataList == null ? 0 : mDataList.size();
+                return 3;
             }
 
             @Override
             public IPagerTitleView getTitleView(Context context, final int index) {
-                ClipPagerTitleView clipPagerTitleView = new ClipPagerTitleView(context);
-                clipPagerTitleView.setText(mDataList.get(index));
-                clipPagerTitleView.setTextColor(Color.BLACK);//未选中的字体色
-                clipPagerTitleView.setClipColor(Color.YELLOW);//选中的字体色
-                clipPagerTitleView.setOnClickListener(new View.OnClickListener() {
+                SimplePagerTitleView simplePagerTitleView = new ColorTransitionPagerTitleView(context);
+                simplePagerTitleView.setNormalColor(Color.RED);
+                simplePagerTitleView.setSelectedColor(Color.WHITE);
+                simplePagerTitleView.setText(mDataList.get(index));
+                simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(MainActivity.this,"===="+index,Toast.LENGTH_SHORT).show();
                         mViewPager.setCurrentItem(index);
                     }
                 });
-                return clipPagerTitleView;
+                return simplePagerTitleView;
             }
 
             @Override
             public IPagerIndicator getIndicator(Context context) {
-                LinePagerIndicator indicator = new LinePagerIndicator(context);
-                indicator.setMode(LinePagerIndicator.MODE_MATCH_EDGE);
-                indicator.setYOffset(-UIUtil.dip2px(context, 3)); // 相对于底部的偏移量，如果你想让直线位于title上方，设置它即可
-                indicator.setColors(Color.parseColor("#ffffff"));//下划线的颜色
-                return indicator;
+                LinePagerIndicator linePagerIndicator = new LinePagerIndicator(context);
+                linePagerIndicator.setMode(LinePagerIndicator.MODE_WRAP_CONTENT);
+                linePagerIndicator.setColors(Color.WHITE);
+                return linePagerIndicator;
             }
         });
         magicIndicator.setNavigator(commonNavigator);

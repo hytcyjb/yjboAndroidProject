@@ -1,4 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli;
+package yjbo.yy.magicindicator_yjbo.magicindicator.abs;
 
 /**
  * 抽象的ViewPager导航器

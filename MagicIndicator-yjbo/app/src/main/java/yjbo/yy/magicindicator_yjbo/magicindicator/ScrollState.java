@@ -1,4 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli;
+package yjbo.yy.magicindicator_yjbo.magicindicator;
 
 /**
  * 自定义滚动状态，消除对ViewPager的依赖

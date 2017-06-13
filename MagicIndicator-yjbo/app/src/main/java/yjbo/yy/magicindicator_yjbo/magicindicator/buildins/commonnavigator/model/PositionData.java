@@ -1,4 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli;
+package yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.model;
 
 /**
  * 保存指示器标题的坐标

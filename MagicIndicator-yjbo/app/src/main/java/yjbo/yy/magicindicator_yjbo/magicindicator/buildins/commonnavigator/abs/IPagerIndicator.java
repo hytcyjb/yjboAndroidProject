@@ -1,7 +1,10 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli;
+package yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs;
+
 
 
 import java.util.List;
+
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.model.PositionData;
 
 /**
  * 抽象的viewpager指示器，适用于CommonNavigator

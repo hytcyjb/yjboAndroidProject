@@ -1,4 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli.kind2;
+package yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.indicators;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,9 +10,9 @@ import android.view.animation.LinearInterpolator;
 
 import java.util.List;
 
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.IPagerIndicator;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.PositionData;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.UIUtil;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.UIUtil;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.model.PositionData;
 
 
 /**

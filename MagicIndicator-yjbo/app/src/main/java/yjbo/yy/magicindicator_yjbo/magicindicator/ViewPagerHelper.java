@@ -1,4 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli;
+package yjbo.yy.magicindicator_yjbo.magicindicator;
 
 import android.support.v4.view.ViewPager;
 
@@ -14,8 +14,6 @@ public class ViewPagerHelper {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 magicIndicator.onPageScrolled(position, positionOffset, positionOffsetPixels);
-                //这样就没有动画效果，很生硬
-//                magicIndicator.onPageScrolled(position,0,0);
             }
 
             @Override

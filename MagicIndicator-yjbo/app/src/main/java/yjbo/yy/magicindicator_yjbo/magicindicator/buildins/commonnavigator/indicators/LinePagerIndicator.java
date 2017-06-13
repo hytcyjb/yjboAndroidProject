@@ -1,4 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli.kind2;
+package yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.indicators;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -12,9 +12,10 @@ import android.view.animation.LinearInterpolator;
 import java.util.Arrays;
 import java.util.List;
 
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.IPagerIndicator;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.PositionData;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.UIUtil;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.ArgbEvaluatorHolder;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.UIUtil;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.model.PositionData;
 
 /**
  * 直线viewpager指示器，带颜色渐变
@@ -44,7 +45,7 @@ public class LinePagerIndicator extends View implements IPagerIndicator {
 
     private RectF mLineRect = new RectF();
 
-    public LinePagerIndicator(Context context) {
+    public  LinePagerIndicator(Context context) {
         super(context);
         init(context);
     }

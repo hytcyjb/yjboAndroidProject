@@ -1,4 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli;
+package yjbo.yy.magicindicator_yjbo.magicindicator;
 
 import android.util.SparseArray;
 import android.util.SparseBooleanArray;

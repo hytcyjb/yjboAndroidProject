@@ -1,13 +1,13 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli.kind2;
+package yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.titles;
 
 import android.content.Context;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.text.TextUtils;
 import android.view.Gravity;
-import android.widget.TextView;
 
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.UIUtil;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.UIUtil;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs.IMeasurablePagerTitleView;
 
 
 /**

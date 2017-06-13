@@ -1,9 +1,12 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli;
+package yjbo.yy.magicindicator_yjbo.magicindicator;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+
+import yjbo.yy.magicindicator_yjbo.magicindicator.abs.IPagerNavigator;
+
 
 /**
  * 整个框架的入口，核心

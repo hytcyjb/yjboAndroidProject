@@ -1,6 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli.kind2;
-
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.IPagerTitleView;
+package yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs;
 
 /**
  * 可测量内容区域的指示器标题

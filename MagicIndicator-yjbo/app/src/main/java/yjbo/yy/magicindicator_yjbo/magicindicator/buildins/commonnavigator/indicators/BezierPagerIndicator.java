@@ -1,4 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli.kind2;
+package yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.indicators;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -13,9 +13,10 @@ import android.view.animation.Interpolator;
 import java.util.Arrays;
 import java.util.List;
 
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.IPagerIndicator;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.PositionData;
-import yjbo.yy.magicindicator_yjbo.magicindicator_utli.UIUtil;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.ArgbEvaluatorHolder;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.UIUtil;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.model.PositionData;
 
 /**
  * 贝塞尔曲线ViewPager指示器，带颜色渐变

@@ -1,4 +1,4 @@
-package yjbo.yy.magicindicator_yjbo.magicindicator_utli;
+package yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -9,11 +9,19 @@ import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 import yjbo.yy.magicindicator_yjbo.R;
+import yjbo.yy.magicindicator_yjbo.magicindicator.NavigatorHelper;
+import yjbo.yy.magicindicator_yjbo.magicindicator.ScrollState;
+import yjbo.yy.magicindicator_yjbo.magicindicator.abs.IPagerNavigator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs.IMeasurablePagerTitleView;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
+import yjbo.yy.magicindicator_yjbo.magicindicator.buildins.commonnavigator.model.PositionData;
+
 
 /**
  * 通用的ViewPager指示器，包含PagerTitle和PagerIndicator
