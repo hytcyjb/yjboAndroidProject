@@ -18,5 +18,5 @@ build/
 gradlew
 gradlew.bat
 local.properties
-settings.gradle
+#settings.gradle
 app.iml

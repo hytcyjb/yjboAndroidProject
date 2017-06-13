@@ -73,14 +73,6 @@ public class CalendarView extends ViewGroup {
         requestLayout();
     }
 
-    public void setData(List<CalendarBean> data, boolean isToday, CalendarBean bean) {
-        this.data = data;
-        this.isToday = isToday;
-        this.mSelectBean = bean;
-        setItem();
-        requestLayout();
-    }
-
     private void setItem() {
 
         selectPostion = -1;
@@ -112,7 +104,7 @@ public class CalendarView extends ViewGroup {
                     selectPostion = i;
                 }
             } else {
-                Log.e("yjbo====00", "当前点击了=4==" + bean.toString() + "===" + selectPostion);
+                Log.e("yjbo====00", "当前点击了=4==" + bean.toString() + "===" + selectPostion+"===="+selectDay);
                 if (selectPostion == -1) {
 //                    if (bean.day == selectDay && bean.moth == selectMot) {
 //                        selectPostion = i;
@@ -121,7 +113,7 @@ public class CalendarView extends ViewGroup {
                         selectPostion = i;
                         Log.e("yjbo====00", "当前点击了=5==" + bean.toString() + "===" + selectPostion);
                     } else {
-                        selectPostion = 1;
+//                        selectPostion = 1;
                     }
                 }
             }
@@ -131,6 +123,14 @@ public class CalendarView extends ViewGroup {
             setItemClick(chidView, i, bean);
 
         }
+    }
+
+    public void setData(List<CalendarBean> data, boolean isToday, CalendarBean bean) {
+        this.data = data;
+        this.isToday = isToday;
+//        this.mSelectBean = bean;
+        setItem();
+        requestLayout();
     }
 
     public Object[] getSelect() {

@@ -13,10 +13,10 @@
 app/build/
 app/src/androidTest/
 build/
-#gradle/
-#gradle.properties
+gradle/
+gradle.properties
 gradlew
 gradlew.bat
 local.properties
-settings.gradle
 app.iml
+#settings.gradle
