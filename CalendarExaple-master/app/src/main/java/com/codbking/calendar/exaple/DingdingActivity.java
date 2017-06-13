@@ -67,6 +67,11 @@ public class DingdingActivity extends AppCompatActivity {
             public void onItemClick(View view, int postion, CalendarBean bean) {
                 mTitle.setText(bean.year + "/" + getDisPlayNumber(bean.moth) + "/" + getDisPlayNumber(bean.day));
             }
+
+            @Override
+            public void onItemClickShow(View view, int postion, CalendarBean bean) {
+                mTitle.setText(bean.year + "/" + getDisPlayNumber(bean.moth) + "/" + getDisPlayNumber(bean.day));
+            }
         });
 
         int[] data = CalendarUtil.getYMD(new Date());

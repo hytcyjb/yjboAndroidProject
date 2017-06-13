@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.codbking.calendar.CaledarAdapter;
+import com.codbking.calendar.CaledarOnItemListener;
 import com.codbking.calendar.CalendarBean;
 import com.codbking.calendar.CalendarDateView;
 import com.codbking.calendar.CalendarUtil;
@@ -30,7 +31,7 @@ public class XiaomiActivity extends AppCompatActivity {
     CalendarDateView mCalendarDateView;
     @BindView(R.id.list)
     ListView mList;
-
+    CalendarBean mSelectBean;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,27 +86,53 @@ public class XiaomiActivity extends AppCompatActivity {
                 TextView text = (TextView) convertView.findViewById(R.id.text);
 
                 text.setText("" + bean.day);
-                if (bean.mothFlag != 0) {
-                    text.setTextColor(0xff9299a1);
+                if (bean.mothFlag != 0 || bean.week == 1 || bean.week == 7) {
+                    text.setTextColor(0xffC7C7C7);
+                    chinaText.setTextColor(0xffC7C7C7);
                 } else {
                     text.setTextColor(0xff444444);
+                    chinaText.setTextColor(0xff444444);
                 }
-                Log.e("yjbo", "=====" + bean.year + "===" + bean.moth + "===" + bean.day);
-                if (bean.year == 2017 && bean.moth == 6 && bean.day == 12) {
-                    chinaText.setText("@");
-                } else {
-                    chinaText.setText(bean.chinaDay);
+                if (mSelectBean != null) {
+                    if (bean.day == mSelectBean.day && bean.moth == mSelectBean.moth) {
+                        convertView.setSelected(true);
+                    } else {
+                        convertView.setSelected(false);
+                    }
                 }
 
+//                Log.e("yjbo====00", "当前点击了=6===" + bean.year + "===" + bean.moth + "===" + bean.day);
+                if (bean.year == 2017 && bean.moth == 6 && bean.day == 12 || bean.year == 2018 && bean.moth == 6 && bean.day == 12) {
+                    chinaText.setText("@");
+                } else {
+                    chinaText.setText("");
+                }
 
                 return convertView;
             }
         });
 
         mCalendarDateView.setOnItemClickListener(new CalendarView.OnItemClickListener() {
+
             @Override
             public void onItemClick(View view, int postion, CalendarBean bean) {
-                mTitle.setText(bean.year + "/" + bean.moth + "/" + bean.day);
+                mSelectBean = bean;
+                mTitle.setText(bean.year + "/" + bean.moth + "/" + bean.day+"==="+bean.mothFlag);
+                if (bean.mothFlag == -1){
+                    mCalendarDateView.setPageNo(bean.mothFlag,bean);
+                }else if (bean.mothFlag == 1){
+                    mCalendarDateView.setPageNo(bean.mothFlag,bean);
+                }
+            }
+
+            @Override
+            public void onItemClickShow(View view, int postion, CalendarBean bean) {
+                mTitle.setText(bean.year + "/" + bean.moth + "/" + bean.day+"==="+bean.mothFlag);
+//                if (bean.mothFlag == -1){
+//                    mCalendarDateView.setPageNo(bean.mothFlag);
+//                }else if (bean.mothFlag == 1){
+//                    mCalendarDateView.setPageNo(bean.mothFlag);
+//                }
             }
         });
 

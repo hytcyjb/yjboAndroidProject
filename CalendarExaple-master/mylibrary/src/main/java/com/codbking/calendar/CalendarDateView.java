@@ -5,8 +5,10 @@ import android.content.res.TypedArray;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -24,18 +26,20 @@ import static com.codbking.calendar.CalendarFactory.getMonthOfDayList;
 public class CalendarDateView extends ViewPager implements CalendarTopView {
 
     HashMap<Integer, CalendarView> views = new HashMap<>();
-    private CaledarTopViewChangeListener mCaledarLayoutChangeListener;
+    public CaledarTopViewChangeListener mCaledarLayoutChangeListener;
+    private CaledarOnItemListener mCaledarOnItemLis;
     private CalendarView.OnItemClickListener onItemClickListener;
 
     private LinkedList<CalendarView> cache = new LinkedList();
 
-    private int MAXCOUNT=6;
+    private int MAXCOUNT = 6;
 
 
     private int row = 6;
 
     private CaledarAdapter mAdapter;
     private int calendarItemHeight = 0;
+    private CalendarBean mSelectBean;
 
     public void setAdapter(CaledarAdapter adapter) {
         mAdapter = adapter;
@@ -70,7 +74,7 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
     }
 
     private void init() {
-       final int[] dateArr= CalendarUtil.getYMD(new Date());
+        final int[] dateArr = CalendarUtil.getYMD(new Date());
 
         setAdapter(new PagerAdapter() {
             @Override
@@ -93,11 +97,17 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
                 } else {
                     view = new CalendarView(container.getContext(), row);
                 }
-
-                view.setOnItemClickListener(onItemClickListener);
+                //正常的点击事件
+                if (onItemClickListener != null) {
+                    view.setOnItemClickListener(onItemClickListener);
+                }
                 view.setAdapter(mAdapter);
-
-                view.setData(getMonthOfDayList(dateArr[0],dateArr[1]+position-Integer.MAX_VALUE/2),position==Integer.MAX_VALUE/2);
+//                if (mSelectBean != null) {
+//                    Log.e("yjbo====00", "当前点击了=0==" + mSelectBean.day);
+//                }else {
+//                    Log.e("yjbo====00", "当前点击了=1==" + mSelectBean);
+//                }
+                view.setData(getMonthOfDayList(dateArr[0], dateArr[1] + position - Integer.MAX_VALUE / 2), position == Integer.MAX_VALUE / 2,mSelectBean);
                 container.addView(view);
                 views.put(position, view);
 
@@ -114,23 +124,34 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
 
         addOnPageChangeListener(new SimpleOnPageChangeListener() {
             @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                super.onPageScrollStateChanged(state);
+            }
+
+            @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-
+//                //滑页时在顶部显示当前选中时间的日期
                 if (onItemClickListener != null) {
                     CalendarView view = views.get(position);
                     Object[] obs = view.getSelect();
-                    onItemClickListener.onItemClick((View) obs[0], (int) obs[1], (CalendarBean) obs[2]);
+//                    onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], mSelectBean);
+                    onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], (CalendarBean) obs[2]);
                 }
-
-                mCaledarLayoutChangeListener.onLayoutChange(CalendarDateView.this);
+//                Toast.makeText(getContext(), "您滑动了..." + position, Toast.LENGTH_SHORT).show();
+//                mCaledarLayoutChangeListener.onLayoutChange(CalendarDateView.this);
             }
         });
     }
 
 
     private void initData() {
-        setCurrentItem(Integer.MAX_VALUE/2, false);
+        setCurrentItem(Integer.MAX_VALUE / 2, false);
         getAdapter().notifyDataSetChanged();
 
     }
@@ -155,6 +176,34 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
     @Override
     public void setCaledarTopViewChangeListener(CaledarTopViewChangeListener listener) {
         mCaledarLayoutChangeListener = listener;
+    }
+
+    public void setCaledarOnItemListener() {
+        if (mCaledarLayoutChangeListener != null)
+            mCaledarLayoutChangeListener.onLayoutChange(CalendarDateView.this);
+    }
+
+    /**
+     * i:往上一页还是下一页翻转
+     * selectBean:当前选中的日期
+     *
+     * @author yjbo
+     * @time 2017/6/13 14:13
+     * @qq 1457521527
+     */
+    public void setPageNo(int i, CalendarBean selectBean) {
+
+        mSelectBean = selectBean;
+
+        if (i == -1) {//上一页
+            setCurrentItem(getCurrentItem() - 1);
+        } else if (i == 0) {//当前页
+            setCurrentItem(getCurrentItem());
+        } else if (i == 1) {//下一页
+            setCurrentItem(getCurrentItem() + 1);
+        }
+        if (mCaledarLayoutChangeListener != null)
+            mCaledarLayoutChangeListener.onLayoutChange(CalendarDateView.this);
     }
 
 

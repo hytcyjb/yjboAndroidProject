@@ -36,9 +36,12 @@ public class CalendarView extends ViewGroup {
     private int itemHeight;
 
     private boolean isToday;
+    private CalendarBean mSelectBean;
 
     public interface OnItemClickListener {
         void onItemClick(View view, int postion, CalendarBean bean);
+
+        void onItemClickShow(View view, int postion, CalendarBean bean);
     }
 
     public CalendarView(Context context, int row) {
@@ -63,9 +66,17 @@ public class CalendarView extends ViewGroup {
         this.adapter = adapter;
     }
 
-    public void setData(List<CalendarBean> data,boolean isToday) {
+    public void setData(List<CalendarBean> data, boolean isToday) {
         this.data = data;
-        this.isToday=isToday;
+        this.isToday = isToday;
+        setItem();
+        requestLayout();
+    }
+
+    public void setData(List<CalendarBean> data, boolean isToday, CalendarBean bean) {
+        this.data = data;
+        this.isToday = isToday;
+        this.mSelectBean = bean;
         setItem();
         requestLayout();
     }
@@ -77,6 +88,15 @@ public class CalendarView extends ViewGroup {
             throw new RuntimeException("adapter is null,please setadapter");
         }
 
+        int selectDay = 1;
+        if (mSelectBean != null) {
+            selectDay = mSelectBean.day;
+        }
+        int selectMot = 1;
+        if (mSelectBean != null) {
+            selectMot = mSelectBean.moth;
+        }
+
         for (int i = 0; i < data.size(); i++) {
             CalendarBean bean = data.get(i);
             View view = getChildAt(i);
@@ -86,26 +106,48 @@ public class CalendarView extends ViewGroup {
                 addViewInLayout(chidView, i, chidView.getLayoutParams(), true);
             }
 
-            if(isToday&&selectPostion==-1){
-                int[]date=CalendarUtil.getYMD(new Date());
-                if(bean.year==date[0]&&bean.moth==date[1]&&bean.day==date[2]){
-                     selectPostion=i;
-                }
-            }else {
-                if (selectPostion == -1 && bean.day == 1) {
+            if (isToday && selectPostion == -1) {
+                int[] date = CalendarUtil.getYMD(new Date());
+                if (bean.year == date[0] && bean.moth == date[1] && bean.day == date[2]) {
                     selectPostion = i;
+                }
+            } else {
+                Log.e("yjbo====00", "当前点击了=4==" + bean.toString() + "===" + selectPostion);
+                if (selectPostion == -1) {
+//                    if (bean.day == selectDay && bean.moth == selectMot) {
+//                        selectPostion = i;
+//                    }else
+                    if (bean.day == selectDay) {
+                        selectPostion = i;
+                        Log.e("yjbo====00", "当前点击了=5==" + bean.toString() + "===" + selectPostion);
+                    } else {
+                        selectPostion = 1;
+                    }
                 }
             }
 
-            chidView.setSelected(selectPostion==i);
+            chidView.setSelected(selectPostion == i);
 
             setItemClick(chidView, i, bean);
 
         }
     }
 
-    public Object[] getSelect(){
-         return new Object[]{getChildAt(selectPostion),selectPostion,data.get(selectPostion)};
+    public Object[] getSelect() {
+//        Log.e("yjbo====00", "当前点击了=3==" + selectPostion);
+//        if (selectPostion == -1 ){
+//            selectPostion = 0;
+//        }
+        return new Object[]{getChildAt(selectPostion), selectPostion, data.get(selectPostion)};
+    }
+
+    /**
+     * @author yjbo
+     * @time 2017/6/13 14:30
+     * @qq 1457521527
+     */
+    public void setClickTime(CalendarBean selectBean) {
+        mSelectBean = selectBean;
     }
 
     public void setItemClick(final View view, final int potsion, final CalendarBean bean) {
@@ -156,8 +198,8 @@ public class CalendarView extends ViewGroup {
         setMeasuredDimension(parentWidth, itemHeight * row);
 
 
-        for(int i=0;i<getChildCount();i++){
-            View childView=getChildAt(i);
+        for (int i = 0; i < getChildCount(); i++) {
+            View childView = getChildAt(i);
             childView.measure(MeasureSpec.makeMeasureSpec(itemWidth, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(itemHeight, MeasureSpec.EXACTLY));
         }
 
@@ -166,7 +208,7 @@ public class CalendarView extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        for (int i = 0; i <getChildCount(); i++) {
+        for (int i = 0; i < getChildCount(); i++) {
             layoutChild(getChildAt(i), i, l, t, r, b);
         }
     }
