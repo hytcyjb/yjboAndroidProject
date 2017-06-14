@@ -8,6 +8,12 @@ import android.view.View;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * 原作者：https://github.com/codbking/CalendarExaple
+ * @author yjbo
+ * @time 2017/6/14 10:25
+ * @qq 1457521527
+*/
 public class MainActivity extends AppCompatActivity {
 
     @Override

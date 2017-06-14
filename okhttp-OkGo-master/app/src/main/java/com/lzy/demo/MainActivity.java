@@ -28,7 +28,12 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.OnClick;
-
+/**
+ * 参考了：https://github.com/jeasonlzy/okhttp-OkGo
+ * @author yjbo
+ * @time 2017/6/14 10:37
+ * @qq 1457521527
+*/
 public class MainActivity extends BaseActivity {
 
     @Bind(R.id.toolbar) Toolbar toolbar;

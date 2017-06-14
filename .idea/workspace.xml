@@ -2,218 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f37cfb0-f890-49b7-853b-95954b2d8e7e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/assets/srca.cer" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/mipmap-xhdpi/ic_start.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/mipmap-xhdpi/logo.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/appkey.jks" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/gradle/wrapper/gradle-wrapper.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/jar/okgo-2.1.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/jar/okhttp-3.4.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/jar/okio-1.9.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/jar/okrx-0.1.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/jar/okserver-1.1.3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo_v2.1.3.apk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/README_JSONCALLBACK.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/README_RX.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/GApp.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/MainActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/WebActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/base/BaseActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/base/BaseDetailActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/base/BaseFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/base/BaseRecyclerAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/base/BaseRxDetailActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/base/DividerItemDecoration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/cache/CacheDemoActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/cache/NewsAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/cache/NewsCallback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/cache/NewsConvert.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/cache/NewsTabFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/callback/BitmapDialogCallback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/callback/DialogCallback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/callback/JsonCallback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/callback/JsonConvert.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/callback/StringDialogCallback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/model/ApkModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/model/LzyResponse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/model/NewsModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/model/NewsResponse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/model/ServerModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/model/SimpleResponse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/BitmapRequestActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/CacheActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/CookieActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/FileDownloadActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/FormUploadActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/HttpsActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/JsonRequestActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/MethodActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/OkHttpActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/PostTextActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/RedirectActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/SyncActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okgo/TestActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okrx/RxActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okrx/RxBitmapActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okrx/RxCommonActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okrx/RxFileDownloadActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okrx/RxFormUploadActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okrx/ServerApi.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okserver/DesActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okserver/DownloadActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okserver/DownloadManagerActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/okserver/UploadActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/ui/NumberProgressBar.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/ui/ProgressPieView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/ui/SimpleViewBehavior.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/ui/TranslateUpDownBehavior.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/utils/AnimHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/utils/ApkUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/utils/ColorUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/utils/Convert.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/utils/GlideImageLoader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/utils/MD5Utils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/utils/PicassoImageLoader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/utils/Urls.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/drawable/progress_bar_states.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_base.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_bitmap_request.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_cache.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_cache_demo.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_cookie.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_custom_request.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_download.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_download_details.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_download_manager.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_file_download.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_form_upload.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_https.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_main.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_method.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_post_text.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_recycler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_redirect.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_rx.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_rx_common.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_sync.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_test.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_upload.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/activity_web.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/fragment_tab.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/include_data.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/item_download_details.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/item_download_manager.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/item_main_list.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/item_main_type.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/item_news.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/item_no_data.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/layout/item_upload_manager.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/values-w820dp/dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/values/attrs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/values/colors.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/values/dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/values/strings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/res/values/styles.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/gradle.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/gradlew" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/gradlew.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/bintray.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/OkGo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/adapter/CacheCall.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/adapter/Call.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/adapter/CallAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/adapter/DefaultCallAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/cache/CacheDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/cache/CacheEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/cache/CacheHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/cache/CacheManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/cache/CacheMode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/cache/DataBaseDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/callback/AbsCallback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/callback/AbsCallbackWrapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/callback/BitmapCallback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/callback/FileCallback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/callback/StringCallback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/convert/BitmapConvert.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/convert/Converter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/convert/FileConvert.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/convert/StringConvert.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/cookie/CookieJarImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/cookie/store/CookieStore.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/cookie/store/MemoryCookieStore.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/cookie/store/PersistentCookieStore.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/cookie/store/SerializableHttpCookie.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/exception/OkGoException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/https/HttpsUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/interceptor/HttpLoggingInterceptor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/model/HttpHeaders.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/model/HttpParams.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/model/Response.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/request/BaseBodyRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/request/BaseRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/request/DeleteRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/request/GetRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/request/HasBody.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/request/HeadRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/request/OptionsRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/request/PostRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/request/ProgressRequestBody.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/request/PutRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/utils/HeaderParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/utils/HttpUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/utils/OkLogger.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okgo/src/main/java/com/lzy/okgo/utils/TypeUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okrx/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okrx/bintray.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okrx/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okrx/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okrx/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okrx/src/main/java/com/lzy/okrx/HttpException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okrx/src/main/java/com/lzy/okrx/OperatorMapResponseToBodyOrError.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okrx/src/main/java/com/lzy/okrx/RxAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/bintray.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/download/DownloadInfo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/download/DownloadManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/download/DownloadService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/download/DownloadTask.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/download/DownloadThreadPool.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/download/DownloadUIHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/download/db/DownloadDBManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/download/db/DownloadInfoDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/download/db/DownloadInfoHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/download/db/DownloadRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/listener/DownloadListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/listener/UploadListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/task/ExecutorWithListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/task/Priority.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/task/PriorityAsyncTask.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/task/PriorityBlockingQueue.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/task/PriorityObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/task/PriorityRunnable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/upload/UploadInfo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/upload/UploadManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/upload/UploadTask.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/upload/UploadThreadPool.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/okserver/src/main/java/com/lzy/okserver/upload/UploadUIHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/settings.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CalendarExaple-master/app/src/main/java/com/codbking/calendar/exaple/MainActivity.java" afterPath="$PROJECT_DIR$/CalendarExaple-master/app/src/main/java/com/codbking/calendar/exaple/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/MainActivity.java" afterPath="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yjboImageCanvas/app/src/main/java/com/yy/yjbo/yjboimagecanvas/MainActivity.java" afterPath="$PROJECT_DIR$/yjboImageCanvas/app/src/main/java/com/yy/yjbo/yjboimagecanvas/MainActivity.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -231,11 +24,94 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DingdingActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/yjboImageCanvas/app/src/main/java/com/yy/yjbo/yjboimagecanvas/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="11" column="53" lean-forward="true" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DingdingActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CalendarExaple-master/app/src/main/java/com/codbking/calendar/exaple/DingdingActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+            <state relative-caret-position="228">
+              <caret line="45" column="10" lean-forward="false" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="380">
+                <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="58" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CalendarExaple-master/app/src/main/java/com/codbking/calendar/exaple/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MagicIndicator-yjbo/app/src/main/java/yjbo/yy/magicindicator_yjbo/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="31" column="47" lean-forward="false" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SystemBarTintyjbo/app/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SystemBarTintyjbo/app/src/main/java/com/yy/yjbo/systembartint_yjbo/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CircleImageView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yjboImageCanvas/app/src/main/java/com/yy/yjbo/yjboimagecanvas/CircleImageView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -255,13 +131,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/SystemBarTintyjbo/app/src/main/java/com/yy/yjbo/systembartint_yjbo/MainActivity.java" />
-        <option value="$PROJECT_DIR$/yjboImageCanvas/app/src/main/java/com/yy/yjbo/yjboimagecanvas/MainActivity.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/yjboImageCanvas/.gitignore" />
         <option value="$PROJECT_DIR$/SystemBarTintyjbo/.gitignore" />
         <option value="$PROJECT_DIR$/MagicIndicator-yjbo/.gitignore" />
         <option value="$PROJECT_DIR$/CalendarExaple-master/.gitignore" />
         <option value="$PROJECT_DIR$/CalendarExaple-master/app/src/main/java/com/codbking/calendar/exaple/DingdingActivity.java" />
+        <option value="$PROJECT_DIR$/CalendarExaple-master/app/src/main/java/com/codbking/calendar/exaple/MainActivity.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/MainActivity.java" />
+        <option value="$PROJECT_DIR$/yjboImageCanvas/app/src/main/java/com/yy/yjbo/yjboimagecanvas/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -309,7 +187,611 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="yjboImageCanvas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboImageCanvas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screenshot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboImageCanvas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboImageCanvas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboImageCanvas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboImageCanvas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboimagecanvas" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SystemBarTintyjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SystemBarTintyjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SystemBarTintyjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SystemBarTintyjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SystemBarTintyjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="systembartint_yjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="okhttp-OkGo-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="okhttp-OkGo-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="okhttp-OkGo-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="okhttp-OkGo-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lzy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MagicIndicator-yjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MagicIndicator-yjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MagicIndicator-yjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MagicIndicator-yjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MagicIndicator-yjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="magicindicator_yjbo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalendarExaple-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalendarExaple-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalendarExaple-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalendarExaple-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yjboAndroidProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalendarExaple-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codbking" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="calendar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exaple" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -640,7 +1122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497406503460</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="学习okgo的工程源码">
+      <created>1497406689933</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1497406689933</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -652,7 +1141,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06761178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22682661" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -688,7 +1177,8 @@
     <MESSAGE value="对沉浸式进行了深入的了解" />
     <MESSAGE value=" 基于此做矩形的四周圆角加边框的功能；" />
     <MESSAGE value="111" />
-    <option name="LAST_COMMIT_MESSAGE" value="111" />
+    <MESSAGE value="学习okgo的工程源码" />
+    <option name="LAST_COMMIT_MESSAGE" value="学习okgo的工程源码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -853,30 +1343,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SystemBarTintyjbo/app/src/main/java/com/yy/yjbo/systembartint_yjbo/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -924,14 +1390,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yjboImageCanvas/app/src/main/java/com/yy/yjbo/yjboimagecanvas/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CalendarExaple-master/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -940,10 +1398,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/yjboImageCanvas/app/src/main/java/com/yy/yjbo/yjboimagecanvas/CircleImageView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yjboImageCanvas/screenshot/pic_1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MagicIndicator-yjbo/app/src/main/java/yjbo/yy/magicindicator_yjbo/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/okhttp-OkGo-master/app/src/main/java/com/lzy/demo/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="31" column="47" lean-forward="false" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SystemBarTintyjbo/app/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SystemBarTintyjbo/app/src/main/java/com/yy/yjbo/systembartint_yjbo/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="380">
+            <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="58" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CalendarExaple-master/app/src/main/java/com/codbking/calendar/exaple/DingdingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        <state relative-caret-position="228">
+          <caret line="45" column="10" lean-forward="false" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalendarExaple-master/app/src/main/java/com/codbking/calendar/exaple/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yjboImageCanvas/app/src/main/java/com/yy/yjbo/yjboimagecanvas/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="11" column="53" lean-forward="true" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
           <folding />
         </state>
       </provider>
