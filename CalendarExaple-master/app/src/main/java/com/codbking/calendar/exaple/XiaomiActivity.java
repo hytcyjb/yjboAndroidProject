@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,11 +29,13 @@ public class XiaomiActivity extends AppCompatActivity {
 
     @BindView(R.id.title)
     TextView mTitle;
-    @BindView(R.id.calendarDateView)
+    //    @BindView(R.id.calendarDateView)
     CalendarDateView mCalendarDateView;
     @BindView(R.id.list)
     ListView mList;
     CalendarBean mSelectBean;
+    View topView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,9 +74,41 @@ public class XiaomiActivity extends AppCompatActivity {
                 return convertView;
             }
         });
+//        setListViewHeightBasedOnChildren(mList);
+
+
+        mList.addHeaderView(topView);
+
+    }
+
+    public void setListViewHeightBasedOnChildren(ListView listView) {
+        // 获取ListView对应的Adapter
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            return;
+        }
+
+        int totalHeight = 0;
+        for (int i = 0, len = listAdapter.getCount(); i < len; i++) {
+            // listAdapter.getCount()返回数据项的数目
+            View listItem = listAdapter.getView(i, null, listView);
+            // 计算子项View 的宽高
+            listItem.measure(0, 0);
+            // 统计所有子项的总高度
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+//        params.height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        // listView.getDividerHeight()获取子项间分隔符占用的高度
+        // params.height最后得到整个ListView完整显示需要的高度
+        listView.setLayoutParams(params);
     }
 
     private void initView() {
+        topView = LayoutInflater.from(XiaomiActivity.this).inflate(R.layout.item_top, null);
+        mCalendarDateView = (CalendarDateView) topView.findViewById(R.id.calendarDateView);
 
         mCalendarDateView.setAdapter(new CaledarAdapter() {
             @Override
@@ -117,17 +153,17 @@ public class XiaomiActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int postion, CalendarBean bean) {
                 mSelectBean = bean;
-                mTitle.setText(bean.year + "/" + bean.moth + "/" + bean.day+"==="+bean.mothFlag);
-                if (bean.mothFlag == -1){
-                    mCalendarDateView.setPageNo(bean.mothFlag,bean);
-                }else if (bean.mothFlag == 1){
-                    mCalendarDateView.setPageNo(bean.mothFlag,bean);
+                mTitle.setText(bean.year + "/" + bean.moth + "/" + bean.day + "===" + bean.mothFlag);
+                if (bean.mothFlag == -1) {
+                    mCalendarDateView.setPageNo(bean.mothFlag, bean);
+                } else if (bean.mothFlag == 1) {
+                    mCalendarDateView.setPageNo(bean.mothFlag, bean);
                 }
             }
 
             @Override
             public void onItemClickShow(View view, int postion, CalendarBean bean) {
-                mTitle.setText(bean.year + "/" + bean.moth + "/" + bean.day+"==="+bean.mothFlag);
+                mTitle.setText(bean.year + "/" + bean.moth + "/" + bean.day + "===" + bean.mothFlag);
 //                if (bean.mothFlag == -1){
 //                    mCalendarDateView.setPageNo(bean.mothFlag);
 //                }else if (bean.mothFlag == 1){

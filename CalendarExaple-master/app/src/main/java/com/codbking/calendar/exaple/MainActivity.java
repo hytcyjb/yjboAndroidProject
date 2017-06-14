@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.text1, R.id.text2})
+    @OnClick({R.id.text1, R.id.text2, R.id.text3})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.text1:
@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.text2:
                 startActivity(new Intent(MainActivity.this,DingdingActivity.class));
+                break;
+            case R.id.text3:
+                startActivity(new Intent(MainActivity.this,MonthActivity.class));
                 break;
         }
     }

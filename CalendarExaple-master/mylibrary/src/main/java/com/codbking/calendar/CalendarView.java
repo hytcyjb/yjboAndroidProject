@@ -104,7 +104,7 @@ public class CalendarView extends ViewGroup {
                     selectPostion = i;
                 }
             } else {
-                Log.e("yjbo====00", "当前点击了=4==" + bean.toString() + "===" + selectPostion+"===="+selectDay);
+                Log.e("yjbo====00", "当前点击了=4==" + bean.toString() + "===" + selectPostion + "====" + selectDay);
                 if (selectPostion == -1) {
 //                    if (bean.day == selectDay && bean.moth == selectMot) {
 //                        selectPostion = i;
@@ -154,12 +154,13 @@ public class CalendarView extends ViewGroup {
         view.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (selectPostion != -1) {
-                    getChildAt(selectPostion).setSelected(false);
-                    getChildAt(potsion).setSelected(true);
+                if (bean.mothFlag == 0) {//不保存除了当月的点击数据，
+                    if (selectPostion != -1) {
+                        getChildAt(selectPostion).setSelected(false);
+                        getChildAt(potsion).setSelected(true);
+                    }
+                    selectPostion = potsion;
                 }
-                selectPostion = potsion;
 
                 if (onItemClickListener != null) {
                     onItemClickListener.onItemClick(view, potsion, bean);

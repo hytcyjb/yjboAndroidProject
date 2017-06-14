@@ -96,8 +96,8 @@ public class CalendarLayout extends FrameLayout {
 
         switch (type) {
             case TYPE_FOLD:
-                bottomViewTopHeight = itemHeight;
-                break;
+//                bottomViewTopHeight = itemHeight;
+//                break;
             case TYPE_OPEN:
                 bottomViewTopHeight = topHeigth;
                 break;
@@ -109,10 +109,10 @@ public class CalendarLayout extends FrameLayout {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
         view2.offsetTopAndBottom(bottomViewTopHeight);
-        int [] selectRct=getSelectRect();
-        if(type==TYPE_FOLD){
-            view1.offsetTopAndBottom(-selectRct[1]);
-        }
+//        int [] selectRct=getSelectRect();
+//        if(type==TYPE_FOLD){
+//            view1.offsetTopAndBottom(-selectRct[1]);
+//        }
     }
 
     private void init() {
@@ -158,30 +158,27 @@ public class CalendarLayout extends FrameLayout {
 
                 if (Math.abs(ydiff) > 5 && Math.abs(ydiff) > Math.abs(xdiff)) {
                     isflag = true;
-
                     if (isClickBtottomView) {
                         boolean isScroll = isScroll(view2);
-                        if (ydiff > 0) {
-                            //向下
-                            if (type == TYPE_OPEN) {
+//                        if (ydiff > 0) {
+//                            //向下
+//                            if (type == TYPE_OPEN) {
                                 return super.onInterceptTouchEvent(ev);
-                            } else {
-                                if (isScroll) {
-                                    return super.onInterceptTouchEvent(ev);
-                                }
-
-                            }
-                        } else {
+//                            } else {
+//                                if (isScroll) {
+//                                    return super.onInterceptTouchEvent(ev);
+//                                }
+//                            }
+//                        } else {
                             //向上
-                            if (type == TYPE_FOLD) {
-                                return super.onInterceptTouchEvent(ev);
-                            } else {
-                                if (isScroll) {
-                                    return super.onInterceptTouchEvent(ev);
-                                }
-                            }
-                        }
-
+//                            if (type == TYPE_FOLD) {
+//                                return super.onInterceptTouchEvent(ev);
+//                            } else {
+//                                if (isScroll) {
+//                                    return super.onInterceptTouchEvent(ev);
+//                                }
+//                            }
+//                        }
                     }
                 }
                 ox = x;

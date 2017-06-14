@@ -107,6 +107,7 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
 //                }else {
 //                    Log.e("yjbo====00", "当前点击了=1==" + mSelectBean);
 //                }
+                Log.e("yjbo----","初始化====");
                 Toast.makeText(getContext(),"你好----",Toast.LENGTH_SHORT).show();
                 view.setData(getMonthOfDayList(dateArr[0], dateArr[1] + position - Integer.MAX_VALUE / 2), position == Integer.MAX_VALUE / 2,mSelectBean);
                 container.addView(view);
