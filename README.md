@@ -21,4 +21,4 @@
      圆形图标，原作者，https://github.com/hdodenhof/CircleImageView
      <p>在此基础上我也实现了椭圆形+有色边框的图片；
 <h3>效果图：</h3>
-<img src="https://github.com/hytcyjb/yjboAndroidProject/blob/master/yjboImageCanvas/screenshot/pic_1.png?raw=true" width="327" height="658" marge="20">
+<img src="https://github.com/hytcyjb/yjboAndroidProject/blob/master/yjboImageCanvas/screenshot/pic_1.png?raw=true" width="255" height="422" marge="20">
