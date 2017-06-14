@@ -46,6 +46,9 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
         initData();
     }
 
+    public void notifyData() {
+    }
+
     public void setOnItemClickListener(CalendarView.OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
@@ -144,6 +147,7 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
 //                    onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], mSelectBean);
                     onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], (CalendarBean) obs[2]);
                 }
+                Log.e("===yjbo==","您到我这里了====");
 //                Toast.makeText(getContext(), "您滑动了..." + position, Toast.LENGTH_SHORT).show();
 //                mCaledarLayoutChangeListener.onLayoutChange(CalendarDateView.this);
             }

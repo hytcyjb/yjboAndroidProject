@@ -84,11 +84,6 @@ public class CalendarView extends ViewGroup {
         if (mSelectBean != null) {
             selectDay = mSelectBean.day;
         }
-        int selectMot = 1;
-        if (mSelectBean != null) {
-            selectMot = mSelectBean.moth;
-        }
-
         for (int i = 0; i < data.size(); i++) {
             CalendarBean bean = data.get(i);
             View view = getChildAt(i);
@@ -106,22 +101,53 @@ public class CalendarView extends ViewGroup {
             } else {
                 Log.e("yjbo====00", "当前点击了=4==" + bean.toString() + "===" + selectPostion + "====" + selectDay);
                 if (selectPostion == -1) {
-//                    if (bean.day == selectDay && bean.moth == selectMot) {
-//                        selectPostion = i;
-//                    }else
                     if (bean.day == selectDay) {
                         selectPostion = i;
                         Log.e("yjbo====00", "当前点击了=5==" + bean.toString() + "===" + selectPostion);
-                    } else {
-//                        selectPostion = 1;
                     }
                 }
             }
-
             chidView.setSelected(selectPostion == i);
-
             setItemClick(chidView, i, bean);
+        }
+        requestLayout();
+    }
+    //更新
+    public void notifyData() {
+        selectPostion = -1;
+        if (adapter == null) {
+            throw new RuntimeException("adapter is null,please setadapter");
+        }
 
+        int selectDay = 1;
+        if (mSelectBean != null) {
+            selectDay = mSelectBean.day;
+        }
+        for (int i = 0; i < data.size(); i++) {
+            CalendarBean bean = data.get(i);
+            View view = getChildAt(i);
+            View chidView = adapter.notifyData(view, this, bean);
+
+            if (view == null || view != chidView) {
+                addViewInLayout(chidView, i, chidView.getLayoutParams(), true);
+            }
+
+            if (isToday && selectPostion == -1) {
+                int[] date = CalendarUtil.getYMD(new Date());
+                if (bean.year == date[0] && bean.moth == date[1] && bean.day == date[2]) {
+                    selectPostion = i;
+                }
+            } else {
+                Log.e("yjbo====00", "当前点击了=4==" + bean.toString() + "===" + selectPostion + "====" + selectDay);
+                if (selectPostion == -1) {
+                    if (bean.day == selectDay) {
+                        selectPostion = i;
+                        Log.e("yjbo====00", "当前点击了=5==" + bean.toString() + "===" + selectPostion);
+                    }
+                }
+            }
+            chidView.setSelected(selectPostion == i);
+            setItemClick(chidView, i, bean);
         }
     }
 
