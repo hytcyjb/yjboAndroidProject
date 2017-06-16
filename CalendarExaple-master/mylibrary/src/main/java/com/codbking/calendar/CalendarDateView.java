@@ -2,6 +2,7 @@ package com.codbking.calendar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -40,6 +41,7 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
     private CaledarAdapter mAdapter;
     private int calendarItemHeight = 0;
     private CalendarBean mSelectBean;
+    CalendarView view;
 
     public void setAdapter(CaledarAdapter adapter) {
         mAdapter = adapter;
@@ -90,10 +92,15 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
                 return view == object;
             }
 
+            //http://lovelease.iteye.com/blog/2107296
+            @Override
+            public int getItemPosition(Object object) {
+                return POSITION_NONE;
+            }
+
             @Override
             public Object instantiateItem(ViewGroup container, final int position) {
 
-                CalendarView view;
 
                 if (!cache.isEmpty()) {
                     view = cache.removeFirst();
@@ -110,9 +117,9 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
 //                }else {
 //                    Log.e("yjbo====00", "当前点击了=1==" + mSelectBean);
 //                }
-                Log.e("yjbo----","初始化====");
-                Toast.makeText(getContext(),"你好----",Toast.LENGTH_SHORT).show();
-                view.setData(getMonthOfDayList(dateArr[0], dateArr[1] + position - Integer.MAX_VALUE / 2), position == Integer.MAX_VALUE / 2,mSelectBean);
+                Log.e("yjbo----", "初始化====");
+                Toast.makeText(getContext(), "你好----", Toast.LENGTH_SHORT).show();
+                view.setData(getMonthOfDayList(dateArr[0], dateArr[1] + position - Integer.MAX_VALUE / 2), position == Integer.MAX_VALUE / 2, mSelectBean);
                 container.addView(view);
                 views.put(position, view);
                 return view;
@@ -140,6 +147,7 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
+//                mSelectBean = null;
 //                //滑页时在顶部显示当前选中时间的日期
                 if (onItemClickListener != null) {
                     CalendarView view = views.get(position);
@@ -147,18 +155,22 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
 //                    onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], mSelectBean);
                     onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], (CalendarBean) obs[2]);
                 }
-                Log.e("===yjbo==","您到我这里了====");
+                Log.e("===yjbo==", "您到我这里了====");
 //                Toast.makeText(getContext(), "您滑动了..." + position, Toast.LENGTH_SHORT).show();
 //                mCaledarLayoutChangeListener.onLayoutChange(CalendarDateView.this);
             }
         });
     }
 
+    Handler mHandler = new Handler();
 
     private void initData() {
         setCurrentItem(Integer.MAX_VALUE / 2, false);
         getAdapter().notifyDataSetChanged();
+    }
 
+    public void updateData() {
+        getAdapter().notifyDataSetChanged();
     }
 
     @Override
@@ -199,13 +211,26 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
     public void setPageNo(int i, CalendarBean selectBean) {
 
         mSelectBean = selectBean;
-
+        Log.e("==yjbo==", "当前的选中时间==" + mSelectBean.toString());
         if (i == -1) {//上一页
             setCurrentItem(getCurrentItem() - 1);
+//            mHandler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+            updateData();
+//                }
+//            }, 2 * 1000);
         } else if (i == 0) {//当前页
-            setCurrentItem(getCurrentItem());
+//            setCurrentItem(getCurrentItem());
+            updateData();
         } else if (i == 1) {//下一页
             setCurrentItem(getCurrentItem() + 1);
+//            mHandler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+            updateData();
+//                }
+//            }, 2 * 1000);
         }
         if (mCaledarLayoutChangeListener != null)
             mCaledarLayoutChangeListener.onLayoutChange(CalendarDateView.this);

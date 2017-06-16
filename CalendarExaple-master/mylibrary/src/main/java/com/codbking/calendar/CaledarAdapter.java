@@ -14,5 +14,4 @@ import com.codbking.calendar.CalendarBean;
 
 public interface CaledarAdapter {
      View getView(View convertView, ViewGroup parentView, CalendarBean bean);
-     View notifyData(View convertView, ViewGroup parentView, CalendarBean bean);
 }

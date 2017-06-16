@@ -39,6 +39,7 @@ public class XiaomiActivity extends AppCompatActivity {
     View topView;
     Handler mHandler = new Handler();
     int flag = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,7 +113,7 @@ public class XiaomiActivity extends AppCompatActivity {
     private void initView() {
         topView = LayoutInflater.from(XiaomiActivity.this).inflate(R.layout.item_top, null);
         mCalendarDateView = (CalendarDateView) topView.findViewById(R.id.calendarDateView);
-        final CaledarAdapter mCaledarAda =new CaledarAdapter() {
+        final CaledarAdapter mCaledarAda = new CaledarAdapter() {
             @Override
             public View getView(View convertView, ViewGroup parentView, CalendarBean bean) {
 
@@ -138,7 +139,7 @@ public class XiaomiActivity extends AppCompatActivity {
                         convertView.setSelected(false);
                     }
                 }
-                Log.e("===yjbo==","您到我这里了=000===");
+                Log.e("===yjbo==", "您到我这里了=000===");
 //                Log.e("yjbo====00", "当前点击了=6===" + bean.year + "===" + bean.moth + "===" + bean.day);
                 if (bean.year == 2017 && bean.moth == 6 && bean.day == 12 || bean.year == 2018 && bean.moth == 6 && bean.day == 12) {
                     chinaText.setText("@");
@@ -146,64 +147,28 @@ public class XiaomiActivity extends AppCompatActivity {
                     chinaText.setText("");
                 }
                 if (bean.mothFlag == 0) {
-                    if (bean.day == flag) {
+                    if (bean.day == flag && (bean.moth == 6 ||  bean.moth == 10)) {
                         chinaText.setText("c");
-                        Toast.makeText(XiaomiActivity.this,"===="+flag,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(XiaomiActivity.this, "====" + flag, Toast.LENGTH_SHORT).show();
                     }
                 }
                 return convertView;
             }
 
-            @Override
-            public View notifyData(View convertView, ViewGroup parentView, CalendarBean bean) {
-                if (convertView == null) {
-                    convertView = LayoutInflater.from(parentView.getContext()).inflate(R.layout.item_xiaomi, null);
-                }
-
-                TextView chinaText = (TextView) convertView.findViewById(R.id.chinaText);
-                TextView text = (TextView) convertView.findViewById(R.id.text);
-
-                text.setText("" + bean.day);
-                if (bean.mothFlag != 0 || bean.week == 1 || bean.week == 7) {
-                    text.setTextColor(0xffC7C7C7);
-                    chinaText.setTextColor(0xffC7C7C7);
-                } else {
-                    text.setTextColor(0xff444444);
-                    chinaText.setTextColor(0xff444444);
-                }
-                if (mSelectBean != null) {
-                    if (bean.day == mSelectBean.day && bean.moth == mSelectBean.moth) {
-                        convertView.setSelected(true);
-                    } else {
-                        convertView.setSelected(false);
-                    }
-                }
-                Log.e("===yjbo==","您到我这里了=000===");
-//                Log.e("yjbo====00", "当前点击了=6===" + bean.year + "===" + bean.moth + "===" + bean.day);
-                if (bean.year == 2017 && bean.moth == 6 && bean.day == 12 || bean.year == 2018 && bean.moth == 6 && bean.day == 12) {
-                    chinaText.setText("@");
-                } else {
-                    chinaText.setText("");
-                }
-                if (bean.mothFlag == 0) {
-                    if (bean.day == flag) {
-                        chinaText.setText("c");
-                        Toast.makeText(XiaomiActivity.this,"===="+flag,Toast.LENGTH_SHORT).show();
-                    }
-                }
-                return convertView;
-            }
         };
         flag = 5;
         mCalendarDateView.setAdapter(mCaledarAda);
+
 //        mHandler.postDelayed(new Runnable() {
 //            @Override
 //            public void run() {
 //                flag = 13;
-//                mCaledarAda.notifyData(null,null,null);
-//                Toast.makeText(XiaomiActivity.this,"====",Toast.LENGTH_SHORT).show();
+////                mCalendarDateView.getAdapter().getItemPosition(null);
+////                mCalendarDateView.setAdapter(mCaledarAda);
+//                Toast.makeText(XiaomiActivity.this, "====", Toast.LENGTH_SHORT).show();
+//                mCalendarDateView.updateData();
 //            }
-//        },6*1000);
+//        }, 6 * 1000);
         mCalendarDateView.setOnItemClickListener(new CalendarView.OnItemClickListener() {
 
             @Override

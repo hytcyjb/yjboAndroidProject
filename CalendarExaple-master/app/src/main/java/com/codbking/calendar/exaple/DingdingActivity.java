@@ -60,6 +60,7 @@ public class DingdingActivity extends AppCompatActivity {
 
                 return convertView;
             }
+
         });
 
         mCalendarDateView.setOnItemClickListener(new CalendarView.OnItemClickListener() {
