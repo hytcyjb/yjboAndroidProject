@@ -174,7 +174,7 @@ public class XiaomiActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int postion, CalendarBean bean) {
                 mSelectBean = bean;
-                mTitle.setText(bean.year + "/" + bean.moth + "/" + bean.day + "===" + bean.mothFlag);
+//                mTitle.setText(bean.year + "/" + bean.moth + "/" + bean.day + "===" + bean.mothFlag);
                 if (bean.mothFlag == -1) {
                     mCalendarDateView.setPageNo(bean.mothFlag, bean);
                 } else if (bean.mothFlag == 1) {

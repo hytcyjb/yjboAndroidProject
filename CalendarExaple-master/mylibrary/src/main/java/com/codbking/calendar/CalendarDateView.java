@@ -148,14 +148,25 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
 //                mSelectBean = null;
-//                //滑页时在顶部显示当前选中时间的日期
+//                setCurrentItem(position);
+////                //滑页时在顶部显示当前选中时间的日期
                 if (onItemClickListener != null) {
                     CalendarView view = views.get(position);
-                    Object[] obs = view.getSelect();
+                    //因为有每次viewpage都加载3个页面，这样的话相当于我获取的getSelect中的位置是下个页面的数据
+                    final Object[] obs = view.getSelect();
+                    if (obs == null){
+                        return;
+                    }
 //                    onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], mSelectBean);
-                    onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], (CalendarBean) obs[2]);
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], (CalendarBean) obs[2]);
+                        }
+                    },1*1000);
+
                 }
-                Log.e("===yjbo==", "您到我这里了====");
+                Log.e("===yjbo==", "您到我这里了=onPageSelected==="+position);
 //                Toast.makeText(getContext(), "您滑动了..." + position, Toast.LENGTH_SHORT).show();
 //                mCaledarLayoutChangeListener.onLayoutChange(CalendarDateView.this);
             }
@@ -236,5 +247,10 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
             mCaledarLayoutChangeListener.onLayoutChange(CalendarDateView.this);
     }
 
-
+//    @Override
+//    public void setCurrentItem(int item) {
+//        super.setCurrentItem(item);
+//        if (mCaledarLayoutChangeListener != null)
+//            mCaledarLayoutChangeListener.onLayoutChange(CalendarDateView.this);
+//    }
 }

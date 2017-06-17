@@ -37,6 +37,8 @@ public class CalendarView extends ViewGroup {
 
     private boolean isToday;
     private CalendarBean mSelectBean;
+    private int currentSelect = -1;//当前月份选中的位置
+
 
     public interface OnItemClickListener {
         void onItemClick(View view, int postion, CalendarBean bean);
@@ -89,6 +91,52 @@ public class CalendarView extends ViewGroup {
         if (mSelectBean != null) {
             selectMoth = mSelectBean.moth;
         }
+        int firstOfMonth = -1;//一个月中的第一天
+
+        for (int i = 0; i < data.size(); i++) {
+            CalendarBean bean = data.get(i);
+            Log.e("yjbo====00", "当前点击了=7==" + bean.toString() + "===" + selectPostion + "====" + selectDay);
+
+            if (isToday && selectPostion == -1 && bean.mothFlag == 0) {
+                int[] date = CalendarUtil.getYMD(new Date());
+                if (bean.year == date[0] && bean.moth == date[1] && bean.day == date[2]) {
+                    selectPostion = i;
+                }
+            } else {
+                Log.e("yjbo====00", "当前点击了=4==" + bean.toString() + "===" + selectPostion + "====" + selectDay);
+                if (selectPostion == -1 && bean.mothFlag == 0) {
+                    if (mSelectBean == null) {
+                        if (bean.day == selectDay) {//每月的周一
+                            selectPostion = i;
+                        }
+                        Log.e("yjbo====00", "当前点击了=5==" + bean.toString() + "===" + +selectPostion);
+                    } else {
+                        if (bean.day == selectDay && bean.moth == selectMoth) {
+                            selectPostion = i;
+                        }
+                        Log.e("yjbo====00", "当前点击了=5==" + bean.toString() + "===" + mSelectBean.toString() + "===" + selectPostion);
+                    }
+                }
+            }
+            //取出一个月的第一天
+            if (bean.day == 1 && bean.mothFlag == 0) {
+                firstOfMonth = i;
+            }
+            //如果都到结尾了都没有数据，那就取一个月的第一天
+            if (i == data.size() - 1) {//最后一个数字
+                if (selectPostion == -1) {
+//                    if (bean.day == 1) {//每月的周一
+                    selectPostion = firstOfMonth;
+//                    }
+                }
+            }
+            if (bean.mothFlag == 0) {
+                if (selectPostion != -1) {
+                    Log.d("==yjbo==", "===当前月份选中的日期=" + selectPostion);
+                    currentSelect = selectPostion;
+                }
+            }
+        }
         for (int i = 0; i < data.size(); i++) {
             CalendarBean bean = data.get(i);
             View view = getChildAt(i);
@@ -98,39 +146,58 @@ public class CalendarView extends ViewGroup {
                 addViewInLayout(chidView, i, chidView.getLayoutParams(), true);
             }
             Log.e("yjbo====00", "当前点击了=7==" + bean.toString() + "===" + selectPostion + "====" + selectDay);
-            if (isToday && selectPostion == -1) {
-                int[] date = CalendarUtil.getYMD(new Date());
-                if (bean.year == date[0] && bean.moth == date[1] && bean.day == date[2]) {
-                    selectPostion = i;
-                }
-            } else {
-                Log.e("yjbo====00", "当前点击了=4==" + bean.toString() + "===" + selectPostion + "====" + selectDay);
-                if (selectPostion == -1) {
-                    if (bean.day == selectDay && bean.moth == selectMoth) {
-                        selectPostion = i;
-                        if (mSelectBean == null){
-                            Log.e("yjbo====00", "当前点击了=5==" + bean.toString() + "===" + + selectPostion);
-                        }else {
-                            Log.e("yjbo====00", "当前点击了=5==" + bean.toString() + "===" + mSelectBean.toString()+"===" + selectPostion);
-                        }
-                    }
-                }
-            }
+
+//            if (isToday && selectPostion == -1 && bean.mothFlag == 0) {
+//                int[] date = CalendarUtil.getYMD(new Date());
+//                if (bean.year == date[0] && bean.moth == date[1] && bean.day == date[2]) {
+//                    selectPostion = i;
+//                }
+//            } else {
+//                Log.e("yjbo====00", "当前点击了=4==" + bean.toString() + "===" + selectPostion + "====" + selectDay);
+//                if (selectPostion == -1 && bean.mothFlag == 0) {
+//                    if (mSelectBean == null){
+//                        if (bean.day == selectDay) {//每月的周一
+//                            selectPostion = i;
+//                        }
+//                        Log.e("yjbo====00", "当前点击了=5==" + bean.toString() + "===" + + selectPostion);
+//                    }else {
+//                        if (bean.day == selectDay && bean.moth == selectMoth) {
+//                            selectPostion = i;
+//                        }
+//                        Log.e("yjbo====00", "当前点击了=5==" + bean.toString() + "===" + mSelectBean.toString()+"===" + selectPostion);
+//                    }
+//                }
+//            }
+            //            //如果最终就没有一个选择项，那就获取每月的1号
+//            if (selectPostion == -1){
+//                if (bean.day == 1) {//每月的一号
+//                    selectPostion = i;
+//                }
+//            }
+//            if (i == data.size() -1){//最后一个数字
+//                if (selectPostion == -1){
+//                    if (bean.day == 1) {//每月的周一
+//                        selectPostion = i;
+//                    }
+//                }
+//            }
             chidView.setSelected(selectPostion == i);
             setItemClick(chidView, i, bean);
+            Log.e("===yjbo==", "您到我这里了=onPageSelected==1=" + selectPostion);
         }
     }
+
     //更新
     public void notifyData() {
     }
 
 
-
     public Object[] getSelect() {
-//        Log.e("yjbo====00", "当前点击了=3==" + selectPostion);
-//        if (selectPostion == -1 ){
-//            selectPostion = 0;
-//        }
+        Log.e("yjbo====00", "当前点击了=3==" + selectPostion);
+        if (selectPostion == -1) {
+            return null;
+//           selectPostion = 0;
+        }
         return new Object[]{getChildAt(selectPostion), selectPostion, data.get(selectPostion)};
     }
 
