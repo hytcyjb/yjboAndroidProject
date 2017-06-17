@@ -118,8 +118,9 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
 //                    Log.e("yjbo====00", "当前点击了=1==" + mSelectBean);
 //                }
                 Log.e("yjbo----", "初始化====");
-                Toast.makeText(getContext(), "你好----", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "你好----", Toast.LENGTH_SHORT).show();
                 view.setData(getMonthOfDayList(dateArr[0], dateArr[1] + position - Integer.MAX_VALUE / 2), position == Integer.MAX_VALUE / 2, mSelectBean);
+
                 container.addView(view);
                 views.put(position, view);
                 return view;
@@ -153,20 +154,26 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
                 if (onItemClickListener != null) {
                     CalendarView view = views.get(position);
                     //因为有每次viewpage都加载3个页面，这样的话相当于我获取的getSelect中的位置是下个页面的数据
-                    final Object[] obs = view.getSelect();
-                    if (obs == null){
+                    final Object[] obs = (Object[]) view.getTag();
+//                    final Object[] obs = view.getViewContent();
+                    if (obs == null) {
                         return;
                     }
 //                    onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], mSelectBean);
-                    mHandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], (CalendarBean) obs[2]);
-                        }
-                    },1*1000);
+//                    mHandler.postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//
+                    if (mSelectBean != null) {//getChildAt(mSelectBean.)  mSelectBean.day
+                        onItemClickListener.onItemClickShow(null, 0, mSelectBean);
+                    } else {
+                        onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], (CalendarBean) obs[2]);
+                    }
+//                        }
+//                    },1*1000);
 
                 }
-                Log.e("===yjbo==", "您到我这里了=onPageSelected==="+position);
+                Log.e("===yjbo==", "您到我这里了=onPageSelected===" + position);
 //                Toast.makeText(getContext(), "您滑动了..." + position, Toast.LENGTH_SHORT).show();
 //                mCaledarLayoutChangeListener.onLayoutChange(CalendarDateView.this);
             }

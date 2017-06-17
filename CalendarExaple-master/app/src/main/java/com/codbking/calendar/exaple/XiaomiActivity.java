@@ -147,9 +147,17 @@ public class XiaomiActivity extends AppCompatActivity {
                     chinaText.setText("");
                 }
                 if (bean.mothFlag == 0) {
-                    if (bean.day == flag && (bean.moth == 6 ||  bean.moth == 10)) {
+                    if (bean.day == flag && (bean.moth == 6 || bean.moth == 10)) {
                         chinaText.setText("c");
-                        Toast.makeText(XiaomiActivity.this, "====" + flag, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(XiaomiActivity.this, "====" + flag, Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                if (mSelectBean != null) {
+                    if (bean.mothFlag == 0 && mSelectBean.day == bean.day && mSelectBean.moth == bean.moth && mSelectBean.year == bean.year) {
+                        Toast.makeText(XiaomiActivity.this, bean.toString(), Toast.LENGTH_SHORT).show();
+                        mTitle.setText("==内容内===" + bean.year + "/" + bean.moth + "/" + bean.day + "===" + bean.mothFlag);
+                        Log.e("yjbo===", "==123===" + bean.year + "/" + bean.moth + "/" + bean.day + "===" + bean.mothFlag);
                     }
                 }
                 return convertView;
@@ -174,17 +182,21 @@ public class XiaomiActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int postion, CalendarBean bean) {
                 mSelectBean = bean;
-//                mTitle.setText(bean.year + "/" + bean.moth + "/" + bean.day + "===" + bean.mothFlag);
+
                 if (bean.mothFlag == -1) {
                     mCalendarDateView.setPageNo(bean.mothFlag, bean);
                 } else if (bean.mothFlag == 1) {
                     mCalendarDateView.setPageNo(bean.mothFlag, bean);
+                } else {
+                    mTitle.setText("单击当前月"+bean.year + "/" + bean.moth + "/" + bean.day + "===" + bean.mothFlag);
                 }
             }
 
             @Override
             public void onItemClickShow(View view, int postion, CalendarBean bean) {
-                mTitle.setText(bean.year + "/" + bean.moth + "/" + bean.day + "===" + bean.mothFlag);
+                mSelectBean = bean;
+//                mCalendarDateView.setPageNo(0, bean);
+                mTitle.setText("展示1=="+bean.year + "/" + bean.moth + "/" + bean.day + "===" + bean.mothFlag);
 //                if (bean.mothFlag == -1){
 //                    mCalendarDateView.setPageNo(bean.mothFlag);
 //                }else if (bean.mothFlag == 1){

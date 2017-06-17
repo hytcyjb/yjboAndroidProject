@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -38,7 +39,8 @@ public class CalendarView extends ViewGroup {
     private boolean isToday;
     private CalendarBean mSelectBean;
     private int currentSelect = -1;//当前月份选中的位置
-
+//    private int count = 0;//viewpage 一共缓存了3个页面，那么也就是只显示一个页面
+    private Object[] viewContent = new Object[]{};//视图内容
 
     public interface OnItemClickListener {
         void onItemClick(View view, int postion, CalendarBean bean);
@@ -181,9 +183,21 @@ public class CalendarView extends ViewGroup {
 //                    }
 //                }
 //            }
+            if (selectPostion == i) {
+//                setViewContent(getChildAt(i), i, data.get(i));
+                setTag(new Object[]{getChildAt(i), i, data.get(i)});
+//                if (bean.mothFlag == 0) {
+//                    count++;
+//                    if (count == 2) {
+//                        Toast.makeText(getContext(), data.get(i).toString(), Toast.LENGTH_SHORT).show();
+//                        onItemClickListener.onItemClickShow(getChildAt(i), i, data.get(i));
+//                    }else  if (count == 3){
+//                        count = 0;
+//                    }
+//                }
+            }
             chidView.setSelected(selectPostion == i);
             setItemClick(chidView, i, bean);
-            Log.e("===yjbo==", "您到我这里了=onPageSelected==1=" + selectPostion);
         }
     }
 
@@ -192,9 +206,19 @@ public class CalendarView extends ViewGroup {
     }
 
 
+    private void setViewContent(View view, int selectP, CalendarBean calendarBean) {
+
+        this.viewContent = new Object[]{getChildAt(selectP), selectP, calendarBean};
+    }
+
+    public Object[] getViewContent() {
+        return viewContent;
+    }
+
     public Object[] getSelect() {
         Log.e("yjbo====00", "当前点击了=3==" + selectPostion);
         if (selectPostion == -1) {
+//            Toast.makeText(getContext(), "-----怎么会出现这种情况----", Toast.LENGTH_SHORT).show();
             return null;
 //           selectPostion = 0;
         }
