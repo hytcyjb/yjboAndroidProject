@@ -42,6 +42,7 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
     private int calendarItemHeight = 0;
     private CalendarBean mSelectBean;
     CalendarView view;
+    private int currentSelectPage = -1;
 
     public void setAdapter(CaledarAdapter adapter) {
         mAdapter = adapter;
@@ -77,7 +78,7 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
         }
         setMeasuredDimension(widthMeasureSpec, MeasureSpec.makeMeasureSpec(calendarHeight, MeasureSpec.EXACTLY));
     }
-
+    //滑动时先走onpageEnd,然后再走这里初始化
     private void init() {
         final int[] dateArr = CalendarUtil.getYMD(new Date());
 
@@ -117,9 +118,12 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
 //                }else {
 //                    Log.e("yjbo====00", "当前点击了=1==" + mSelectBean);
 //                }
-                Log.e("yjbo----", "初始化====");
+                Log.e("yjbo----", "初始化==页面==");
 //                Toast.makeText(getContext(), "你好----", Toast.LENGTH_SHORT).show();
-                view.setData(getMonthOfDayList(dateArr[0], dateArr[1] + position - Integer.MAX_VALUE / 2), position == Integer.MAX_VALUE / 2, mSelectBean);
+                if (currentSelectPage == -1){
+                    currentSelectPage = position;
+                }
+                view.setData(getMonthOfDayList(dateArr[0], dateArr[1] + position - Integer.MAX_VALUE / 2), position == Integer.MAX_VALUE / 2, mSelectBean,currentSelectPage,position);
 
                 container.addView(view);
                 views.put(position, view);
@@ -150,6 +154,18 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
                 super.onPageSelected(position);
 //                mSelectBean = null;
 //                setCurrentItem(position);
+                if (currentSelectPage == -1){//第一次的时候
+                    currentSelectPage = Integer.MAX_VALUE / 2;
+                }//点击的时候在点击那边
+//                else {
+//                    currentSelectPage = position;
+//                }
+
+                Log.e("yjbo----", "初始化==滑动结束==");
+                if (1 == 1){
+                    return;
+                }
+//                updateData();
 ////                //滑页时在顶部显示当前选中时间的日期
                 if (onItemClickListener != null) {
                     CalendarView view = views.get(position);
@@ -166,8 +182,10 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
 //
                     if (mSelectBean != null) {//getChildAt(mSelectBean.)  mSelectBean.day
                         onItemClickListener.onItemClickShow(null, 0, mSelectBean);
+                        Log.e("yjbo----", "初始化==0=="+mSelectBean.toString());
                     } else {
                         onItemClickListener.onItemClickShow((View) obs[0], (int) obs[1], (CalendarBean) obs[2]);
+                        Log.e("yjbo----", "初始化==1=="+((CalendarBean) obs[2]).toString());
                     }
 //                        }
 //                    },1*1000);
@@ -231,6 +249,7 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
         mSelectBean = selectBean;
         Log.e("==yjbo==", "当前的选中时间==" + mSelectBean.toString());
         if (i == -1) {//上一页
+            currentSelectPage = getCurrentItem() -1;
             setCurrentItem(getCurrentItem() - 1);
 //            mHandler.postDelayed(new Runnable() {
 //                @Override
@@ -240,8 +259,10 @@ public class CalendarDateView extends ViewPager implements CalendarTopView {
 //            }, 2 * 1000);
         } else if (i == 0) {//当前页
 //            setCurrentItem(getCurrentItem());
+            currentSelectPage = getCurrentItem() ;
             updateData();
         } else if (i == 1) {//下一页
+            currentSelectPage = getCurrentItem() + 1;
             setCurrentItem(getCurrentItem() + 1);
 //            mHandler.postDelayed(new Runnable() {
 //                @Override

@@ -39,6 +39,8 @@ public class CalendarView extends ViewGroup {
     private boolean isToday;
     private CalendarBean mSelectBean;
     private int currentSelect = -1;//当前月份选中的位置
+    private int mCurrentPage = -1;//当前月份选中的位置
+    private int mCurrentSelectPage = -1;//当前月份选中的位置
 //    private int count = 0;//viewpage 一共缓存了3个页面，那么也就是只显示一个页面
     private Object[] viewContent = new Object[]{};//视图内容
 
@@ -74,6 +76,15 @@ public class CalendarView extends ViewGroup {
         this.data = data;
         this.isToday = isToday;
         this.mSelectBean = bean;
+        setItem();
+        requestLayout();
+    }
+    public void setData(List<CalendarBean> data, boolean isToday, CalendarBean bean,int currentSelectPage,int currentPage) {
+        this.data = data;
+        this.isToday = isToday;
+        this.mSelectBean = bean;
+        this.mCurrentPage = currentPage;
+        this.mCurrentSelectPage = currentSelectPage;
         setItem();
         requestLayout();
     }
@@ -186,6 +197,10 @@ public class CalendarView extends ViewGroup {
             if (selectPostion == i) {
 //                setViewContent(getChildAt(i), i, data.get(i));
                 setTag(new Object[]{getChildAt(i), i, data.get(i)});
+                Log.e("yjbo----", "初始化==2=="+data.get(i).toString()+"===="+mCurrentPage +"===="+ mCurrentSelectPage);
+                if (mCurrentPage == mCurrentSelectPage) {//getChildAt(mSelectBean.)  mSelectBean.day
+                    onItemClickListener.onItemClickShow(getChildAt(i), selectPostion, data.get(i));
+                }
 //                if (bean.mothFlag == 0) {
 //                    count++;
 //                    if (count == 2) {
