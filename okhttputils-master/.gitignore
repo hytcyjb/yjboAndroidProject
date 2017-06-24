@@ -13,7 +13,6 @@
 app/build/
 app/src/androidTest/
 build/
-gradle/
 gradle.properties
 gradlew
 gradlew.bat
