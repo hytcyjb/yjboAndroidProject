@@ -397,6 +397,19 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    public void yjboRequest(View view)
+    {
+//        params.put("platform", "android");
+//        params.put("phone", "18911966148");
+//        params.put("passwd", "e10adc3949ba59abbe56e057f20f883e");
+//        params.put("imei", "869231026460098");
+//        String url = "http://bag.89mc.com/ba/api/login/phone_login";
+//        Request.Builder builder = new Request.Builder()
+//                .url(url)
+//                .;
+
+
+    }
 
     @Override
     protected void onDestroy()

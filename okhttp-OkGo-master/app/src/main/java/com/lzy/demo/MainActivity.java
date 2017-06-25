@@ -215,7 +215,10 @@ public class MainActivity extends BaseActivity {
             if (position == 6) startActivity(new Intent(MainActivity.this, FormUploadActivity.class));
             if (position == 7) startActivity(new Intent(MainActivity.this, CacheDemoActivity.class));
             if (position == 9) startActivity(new Intent(MainActivity.this, DownloadActivity.class));
-            if (position == 10) startActivity(new Intent(MainActivity.this, UploadActivity.class));
+            if (position == 10){
+                startActivity(new Intent(MainActivity.this, UploadActivity.class));
+                overridePendingTransition(R.anim.push_bottom_in, 0);
+            }
         }
     }
 

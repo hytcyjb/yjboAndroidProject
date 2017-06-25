@@ -3,11 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/open_manager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="打开下载管理器" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

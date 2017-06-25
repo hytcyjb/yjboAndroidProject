@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <!--  android:right="-2dp" 哪条边有负数，则哪条边隐藏-->
+        <shape>
+            <solid android:color="#00000000" />
+            <!--<corners
+                android:bottomLeftRadius="15dip"
+                android:bottomRightRadius="15dip"
+                android:topLeftRadius="15dip"
+                android:topRightRadius="15dip" />-->
+            <stroke
+                android:width="0.3dp"
+                android:color="#d2d2d2" />
+            <padding
+                android:bottom="5dp"
+                android:left="15dp"
+                android:right="15dp"
+                android:top="5dp" />
+        </shape>
+    </item>
+</layer-list>

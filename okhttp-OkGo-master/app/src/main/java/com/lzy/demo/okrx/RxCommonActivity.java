@@ -212,15 +212,20 @@ public class RxCommonActivity extends BaseRxDetailActivity {
     @OnClick(R.id.upJson)
     public void upJson(View view) {
         HashMap<String, String> params = new HashMap<>();
-        params.put("key1", "value1");
-        params.put("key2", "这里是需要提交的json格式数据");
-        params.put("key3", "也可以使用三方工具将对象转成json字符串");
-        params.put("key4", "其实你怎么高兴怎么写都行");
+//        params.put("key1", "value1");
+//        params.put("key2", "这里是需要提交的json格式数据");
+//        params.put("key3", "也可以使用三方工具将对象转成json字符串");
+//        params.put("key4", "其实你怎么高兴怎么写都行");
+        params.put("platform", "android");
+        params.put("phone", "18911966148");
+        params.put("passwd", "e10adc3949ba59abbe56e057f20f883e");
+        params.put("imei", "869231026460098");
         JSONObject jsonObject = new JSONObject(params);
 
-        Subscription subscription = OkGo.post(Urls.URL_TEXT_UPLOAD)//
+        Subscription subscription = OkGo.post("http://bag.89mc.com/ba/api/login/phone_login")//
                 .headers("bbb", "222")//
-                .upJson(jsonObject.toString())//
+//                .upJson(jsonObject.toString())//
+                .params(params)
                 .getCall(StringConvert.create(), RxAdapter.<String>create())//以上为产生请求事件,请求默认发生在IO线程
                 .doOnSubscribe(new Action0() {
                     @Override
