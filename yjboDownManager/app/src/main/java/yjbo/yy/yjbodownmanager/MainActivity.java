@@ -9,6 +9,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
@@ -21,11 +22,14 @@ import yjbo.yy.yjbodownmanager.adapter.MutipleAdaper;
 import yjbo.yy.yjbodownmanager.adapter.RecyclerViewHolder;
 import yjbo.yy.yjbodownmanager.downmanager.DownloadManager;
 import yjbo.yy.yjbodownmanager.downmanager.DownloadService;
+import yjbo.yy.yjbodownmanager.downmanager.db.DownloadInfo;
+import yjbo.yy.yjbodownmanager.downmanager.listener.DownloadListener;
 import yjbo.yy.yjbodownmanager.downmanager.request.GetRequest;
 
 /**
  * 写一个文件下载器
  * 模仿：https://github.com/jeasonlzy/okhttp-OkGo
+ *
  * @author yjbo
  * @time 2017/6/24 16:24
  */
@@ -49,23 +53,6 @@ public class MainActivity extends AppCompatActivity {
         downloadManager.setTargetFolder(Environment.getExternalStorageDirectory().getAbsolutePath() + "/aaa/");
         downloadManager.getThreadPool().setCorePoolSize(5);
 //
-//        targetFolder.setText("下载路径: " + downloadManager.getTargetFolder());
-//        sbCorePoolSize.setMax(5);
-//        sbCorePoolSize.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//
-//                tvCorePoolSize.setText(String.valueOf(progress));
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//            }
-//        });
         Datas = new ArrayList<>();
 
         Datas.add(new Item("美丽加", 1, "http://pic3.apk8.com/small2/14325422596306671.png",
@@ -113,9 +100,12 @@ public class MainActivity extends AppCompatActivity {
                                 .headers("headerKey2", "headerValue2")//
                                 .params("paramKey1", "paramValue1")//
                                 .params("paramKey2", "paramValue2");
-                        ApkModel apkModel = new ApkModel(item.getTv1(), item.getDownUrl(), item.getIconUrl());
 
-                        downloadManager.addTask(item.getDownUrl(), apkModel, request, null);
+                        ApkModel apkModel = new ApkModel(item.getTv1(), item.getDownUrl(), item.getIconUrl());
+                        MyDownloadListener myDownloadListener = new MyDownloadListener();
+                        myDownloadListener.setUserTag(holder);
+
+                        downloadManager.addTask(item.getDownUrl(), apkModel, request, myDownloadListener);
 
 
                         holder.setText(R.id.show_change, "已在队列");
@@ -141,5 +131,43 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //直接下载全部未下载的内容
+        downloadManager.startAllTask();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mMutipleAdaper.notifyDataSetChanged();
+    }
+
+    private class MyDownloadListener extends DownloadListener {
+
+        @Override
+        public void onProgress(DownloadInfo downloadInfo) {
+            Log.e("yjbo", "====="+downloadInfo.getFileName() + "=====" + downloadInfo.getProgress());
+            if (downloadInfo.getProgress() == 1.0){
+                DownloadListener listener = downloadInfo.getListener();
+                RecyclerViewHolder holder = (RecyclerViewHolder) listener.getUserTag();
+                holder.setText(R.id.show_change,"下载完成");
+            }else {
+                DownloadListener listener = downloadInfo.getListener();
+                RecyclerViewHolder holder = (RecyclerViewHolder) listener.getUserTag();
+                holder.setText(R.id.show_change,"正在下载中"+downloadInfo.getProgress());
+            }
+        }
+
+        @Override
+        public void onFinish(DownloadInfo downloadInfo) {
+        }
+
+        @Override
+        public void onError(DownloadInfo downloadInfo, String errorMsg, Exception e) {
+        }
     }
 }
