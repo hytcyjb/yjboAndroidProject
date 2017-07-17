@@ -15,5 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //主要的亮点就在于对自定义view的进一步了解，以及对边框添加的掌握；
+        // 在以后有能力的情况下，可以进一步的看这种自定义的消耗内容，线程阻塞的情况的发生；
     }
 }
