@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="thumnail_default_width">20dp</dimen>
+    <dimen name="thumnail_default_height">20dp</dimen>
+</resources>

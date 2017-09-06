@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">yjboImageCanvas图像加框加圆角</string>
+    <string name="dialog_title">我是dialog detail，是否取消我</string>
+    <string name="dialog_title2">&#160;&#160;detail</string>
 </resources>

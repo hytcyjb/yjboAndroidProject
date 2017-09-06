@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    >
+
+    <com.yy.yjbo.yjboimagecanvas.horizonlist.HorizontalListView
+        android:id="@+id/horizon_listview"
+        android:layout_width="match_parent"
+        android:layout_height="150dip"
+        android:layout_alignParentTop="true"
+        />
+    <ImageView
+        android:id="@+id/image_preview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/horizon_listview"
+        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:background="@drawable/selector_imageview_background"
+        />
+    <!-- android:background="@android:drawable/ic_menu_gallery" -->
+
+</RelativeLayout>
