@@ -40,7 +40,7 @@ public class GlideCircleTransform extends BitmapTransformation {
         float r = size / 2f;
         canvas.drawCircle(r, r, r, paint);
 
-        Rect targetRect = new Rect(0, source.getHeight()-70, source.getHeight(), source.getWidth());
+        Rect targetRect = new Rect(source.getHeight()-10, source.getWidth()-10, source.getHeight(), source.getWidth());
         Paint paint2 = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint2.setStrokeWidth(3);
         paint2.setTextSize(20);

@@ -15,6 +15,8 @@ import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.services.core.AMapException;
 import com.amap.api.services.core.LatLonPoint;
+import com.amap.api.services.geocoder.GeocodeAddress;
+import com.amap.api.services.geocoder.GeocodeQuery;
 import com.amap.api.services.geocoder.GeocodeResult;
 import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeAddress;
@@ -36,44 +38,45 @@ import java.util.concurrent.Executors;
  * @aouto yjbo
  * @time 17/9/4 下午10:27
  */
-public class ShowMapActivity extends MapBaseActivity implements
-        GeocodeSearch.OnGeocodeSearchListener, View.OnClickListener, AMap.OnMarkerClickListener {
-
-    private GeocodeSearch geocoderSearch;
-    private String addressName;
-    private AMap aMap;
+public class ShowMapActivity extends MapBaseActivity implements View.OnClickListener {
+    //implements
+//    GeocodeSearch.OnGeocodeSearchListener, View.OnClickListener, AMap.OnMarkerClickListener
+//    private GeocodeSearch geocoderSearch;
+//    private String addressName;
+//    private AMap aMap;
     private CRMMapView mapView;
     private LatLonPoint latLonPoint = new LatLonPoint(39.90865, 116.39751);
-    private Marker regeoMarker;
-    private ExecutorService mExecutorService;
+    //    private Marker regeoMarker;
+//    private ExecutorService mExecutorService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_base);
-        /*
-         * 设置离线地图存储目录，在下载离线地图或初始化地图设置;
-         * 使用过程中可自行设置, 若自行设置了离线地图存储的路径，
-         * 则需要在离线地图下载和使用地图页面都进行路径设置
-         * */
-        //Demo中为了其他界面可以使用下载的离线地图，使用默认位置存储，屏蔽了自定义设置
-//        MapsInitializer.sdcardDir =OffLineMapUtils.getSdCacheDir(this);
         mapView = (CRMMapView) findViewById(R.id.map);
-        mapView.onCreate(savedInstanceState);// 此方法必须重写
+        mapView.initMap(savedInstanceState, ShowMapActivity.this);
         init();
     }
 
-    /**
-     * 初始化AMap对象
-     */
+
+//    /**
+//     * 初始化AMap对象
+//     */
+//    private void initMap(Bundle savedInstanceState) {
+//        mapView.onCreate(savedInstanceState);// 此方法必须重写
+//        if (aMap == null) {
+//            aMap = mapView.getMap();
+//            regeoMarker = aMap.addMarker(new MarkerOptions().anchor(0.5f, 0.5f)
+//                    .icon(BitmapDescriptorFactory
+//                            .defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+//            aMap.setOnMarkerClickListener(this);
+//        }
+//        geocoderSearch = new GeocodeSearch(this);
+//        geocoderSearch.setOnGeocodeSearchListener(this);
+//
+//    }
+
     private void init() {
-        if (aMap == null) {
-            aMap = mapView.getMap();
-            regeoMarker = aMap.addMarker(new MarkerOptions().anchor(0.5f, 0.5f)
-                    .icon(BitmapDescriptorFactory
-                            .defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-            aMap.setOnMarkerClickListener(this);
-        }
         Button regeoButton = (Button) findViewById(R.id.geoButton);
         Button regeoButton_ = (Button) findViewById(R.id.regeoButton);
         regeoButton.setText("ResGeoCoding(39.90865,116.39751)");
@@ -81,9 +84,9 @@ public class ShowMapActivity extends MapBaseActivity implements
         regeoButton_.setVisibility(View.VISIBLE);
         regeoButton_.setText("逆地理编码同步方法(线程池)");
         regeoButton_.setOnClickListener(this);
-        geocoderSearch = new GeocodeSearch(this);
-        geocoderSearch.setOnGeocodeSearchListener(this);
-
+        Button geoButton = (Button) findViewById(R.id.geoDZButton);
+        geoButton.setText("GeoCoding(北京市朝阳区方恒国际中心A座)");
+        geoButton.setOnClickListener(this);
     }
 
     /**
@@ -102,6 +105,7 @@ public class ShowMapActivity extends MapBaseActivity implements
     protected void onPause() {
         super.onPause();
         mapView.onPause();
+        mapView.deactivate();
     }
 
     /**
@@ -119,52 +123,67 @@ public class ShowMapActivity extends MapBaseActivity implements
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mapView.onDestroy();
-        if (mExecutorService != null) {
-            mExecutorService.shutdownNow();
-        }
+        mapView.onDestroyMap();
     }
 
 
-    /**
-     * 响应逆地理编码
-     */
-    public void getAddress(final LatLonPoint latLonPoint) {
-        showDialog();
-        RegeocodeQuery query = new RegeocodeQuery(latLonPoint, 200,
-                GeocodeSearch.AMAP);// 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
-        geocoderSearch.getFromLocationAsyn(query);// 设置异步逆地理编码请求
-    }
-
-    /**
-     * 地理编码查询回调
-     */
-    @Override
-    public void onGeocodeSearched(GeocodeResult result, int rCode) {
-    }
-
-    /**
-     * 逆地理编码回调
-     */
-    @Override
-    public void onRegeocodeSearched(RegeocodeResult result, int rCode) {
-        dismissDialog();
-        if (rCode == AMapException.CODE_AMAP_SUCCESS) {
-            if (result != null && result.getRegeocodeAddress() != null
-                    && result.getRegeocodeAddress().getFormatAddress() != null) {
-                addressName = result.getRegeocodeAddress().getFormatAddress()
-                        + "附近";
-                aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                        AMapUtil.convertToLatLng(latLonPoint), 15));
-                regeoMarker.setPosition(AMapUtil.convertToLatLng(latLonPoint));
-                ToastUtil.show(ShowMapActivity.this, addressName);
-            } else {
-                ToastUtil.show(ShowMapActivity.this, "没有结果");
-            }
-        } else {
-            ToastUtil.showerror(this, rCode);
-        }
-    }
+//    /**
+//     * 响应逆地理编码
+//     */
+//    public void getAddress(final LatLonPoint latLonPoint) {
+//        showDialog();
+//        RegeocodeQuery query = new RegeocodeQuery(latLonPoint, 200,
+//                GeocodeSearch.AMAP);// 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
+//        geocoderSearch.getFromLocationAsyn(query);// 设置异步逆地理编码请求
+//    }
+//
+//    /**
+//     * 地理编码查询回调
+//     */
+//    @Override
+//    public void onGeocodeSearched(GeocodeResult result, int rCode) {
+//        dismissDialog();
+//        if (rCode == AMapException.CODE_AMAP_SUCCESS) {
+//            if (result != null && result.getGeocodeAddressList() != null
+//                    && result.getGeocodeAddressList().size() > 0) {
+//                GeocodeAddress address = result.getGeocodeAddressList().get(0);
+//                aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+//                        AMapUtil.convertToLatLng(address.getLatLonPoint()), 15));
+//                regeoMarker.setPosition(AMapUtil.convertToLatLng(address
+//                        .getLatLonPoint()));
+//                addressName = "经纬度值:" + address.getLatLonPoint() + "\n位置描述:"
+//                        + address.getFormatAddress();
+//                ToastUtil.show(ShowMapActivity.this, addressName);
+//            } else {
+//                ToastUtil.show(ShowMapActivity.this, "没有结果");
+//            }
+//        } else {
+//            ToastUtil.showerror(this, rCode);
+//        }
+//    }
+//
+//    /**
+//     * 逆地理编码回调
+//     */
+//    @Override
+//    public void onRegeocodeSearched(RegeocodeResult result, int rCode) {
+//        dismissDialog();
+//        if (rCode == AMapException.CODE_AMAP_SUCCESS) {
+//            if (result != null && result.getRegeocodeAddress() != null
+//                    && result.getRegeocodeAddress().getFormatAddress() != null) {
+//                addressName = result.getRegeocodeAddress().getFormatAddress()
+//                        + "附近";
+//                aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+//                        AMapUtil.convertToLatLng(latLonPoint), 15));
+//                regeoMarker.setPosition(AMapUtil.convertToLatLng(latLonPoint));
+//                ToastUtil.show(ShowMapActivity.this, addressName);
+//            } else {
+//                ToastUtil.show(ShowMapActivity.this, "没有结果");
+//            }
+//        } else {
+//            ToastUtil.showerror(this, rCode);
+//        }
+//    }
 
     @Override
     public void onClick(View v) {
@@ -173,52 +192,66 @@ public class ShowMapActivity extends MapBaseActivity implements
              * 响应逆地理编码按钮
              */
             case R.id.geoButton:
-                getAddress(latLonPoint);
+                mapView.getAddress(latLonPoint);
                 break;
             case R.id.regeoButton:
-                getAddresses();
+                mapView.getAddresses(readLatLonPoints());
+                break;
+            case R.id.geoDZButton:
+                mapView.getLatlon("北京市朝阳区方恒国际中心A座");
+                break;
             default:
                 break;
         }
     }
 
-    /**
-     * 响应逆地理编码的批量请求
-     */
-    private void getAddresses() {
-        if (mExecutorService == null) {
-            mExecutorService = Executors.newSingleThreadExecutor();
-        }
-        List<LatLonPoint> geopointlist = readLatLonPoints();
-        for (final LatLonPoint point : geopointlist) {
-            mExecutorService.submit(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        RegeocodeQuery query = new RegeocodeQuery(point, 200,
-                                GeocodeSearch.AMAP);// 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
-                        RegeocodeAddress result = geocoderSearch.getFromLocation(query);// 设置同步逆地理编码请求
-
-                        if (result != null && result.getFormatAddress() != null) {
-                            aMap.addMarker(new MarkerOptions()
-                                    .position(new LatLng(point.getLatitude(), point.getLongitude()))
-                                    .title(result.getFormatAddress()));
-                        }
-                    } catch (AMapException e) {
-                        Message msg = msgHandler.obtainMessage();
-                        msg.arg1 = e.getErrorCode();
-                        msgHandler.sendMessage(msg);
-                    }
-                }
-            });
-        }
-    }
-
-    private Handler msgHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            ToastUtil.showerror(ShowMapActivity.this, msg.arg1);
-        }
-    };
+//    /**
+//     * 响应逆地理编码的批量请求
+//     */
+//    private void getAddresses( List<LatLonPoint> geopointlist) {
+//        if (mExecutorService == null) {
+//            mExecutorService = Executors.newSingleThreadExecutor();
+//        }
+////        List<LatLonPoint> geopointlist = readLatLonPoints();
+//        for (final LatLonPoint point : geopointlist) {
+//            mExecutorService.submit(new Runnable() {
+//                @Override
+//                public void run() {
+//                    try {
+//                        RegeocodeQuery query = new RegeocodeQuery(point, 200,
+//                                GeocodeSearch.AMAP);// 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
+//                        RegeocodeAddress result = geocoderSearch.getFromLocation(query);// 设置同步逆地理编码请求
+//
+//                        if (result != null && result.getFormatAddress() != null) {
+//                            aMap.addMarker(new MarkerOptions()
+//                                    .position(new LatLng(point.getLatitude(), point.getLongitude()))
+//                                    .title(result.getFormatAddress()));
+//                        }
+//                    } catch (AMapException e) {
+//                        Message msg = msgHandler.obtainMessage();
+//                        msg.arg1 = e.getErrorCode();
+//                        msgHandler.sendMessage(msg);
+//                    }
+//                }
+//            });
+//        }
+//    }
+//
+//    /**
+//     * 响应地理编码
+//     */
+//    public void getLatlon(final String name) {
+//        showDialog();
+//
+//        GeocodeQuery query = new GeocodeQuery(name, "010");// 第一个参数表示地址，第二个参数表示查询城市，中文或者中文全拼，citycode、adcode，
+//        geocoderSearch.getFromLocationNameAsyn(query);// 设置同步地理编码请求
+//    }
+//
+//    private Handler msgHandler = new Handler() {
+//        public void handleMessage(Message msg) {
+//            ToastUtil.showerror(ShowMapActivity.this, msg.arg1);
+//        }
+//    };
 
     private List<LatLonPoint> readLatLonPoints() {
         List<LatLonPoint> points = new ArrayList<LatLonPoint>();
@@ -259,9 +292,9 @@ public class ShowMapActivity extends MapBaseActivity implements
             94.403114, 29.621356,
             116.388352, 39.928242};
 
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        marker.showInfoWindow();
-        return false;
-    }
+//    @Override
+//    public boolean onMarkerClick(Marker marker) {
+//        marker.showInfoWindow();
+//        return false;
+//    }
 }

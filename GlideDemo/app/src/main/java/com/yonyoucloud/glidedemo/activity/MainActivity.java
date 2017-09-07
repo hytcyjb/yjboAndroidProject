@@ -1,18 +1,25 @@
 package com.yonyoucloud.glidedemo.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.GlideBitmapDrawable;
 import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.yonyoucloud.AMap.activity.ShowMapActivity;
 import com.yonyoucloud.glidedemo.R;
 import com.yonyoucloud.glidedemo.util.GlideCacheUtil;
 import com.yonyoucloud.glidedemo.util.GlideUtil;
+import com.yonyoucloud.util.BitmapWaterMarkerUtil;
 
 /**
  * glide的demo，封装api
@@ -89,20 +96,38 @@ public class MainActivity extends AppCompatActivity {
         GlideUtil
                 .showImage(MainActivity.this, mImageView, imageUrlStr);
 
-        //显示图片二
-        GlideUtil
-                .showImage(MainActivity.this, mImageViewSec, imageUrlStr, new RequestListener() {
-                    @Override
-                    public boolean onException(Exception e, Object model, Target target, boolean isFirstResource) {
-                        Toast.makeText(MainActivity.this, "加载失败", Toast.LENGTH_SHORT).show();
-                        return false;
-                    }
+//        //显示图片二
+//        GlideUtil
+//                .showImage(MainActivity.this, mImageViewSec, imageUrlStr, new RequestListener() {
+//                    @Override
+//                    public boolean onException(Exception e, Object model, Target target, boolean isFirstResource) {
+//                        Toast.makeText(MainActivity.this, "加载失败", Toast.LENGTH_SHORT).show();
+//                        return false;
+//                    }
+//
+//                    @Override
+//                    public boolean onResourceReady(Object resource, Object model, Target target, boolean isFromMemoryCache, boolean isFirstResource) {
+//                        Toast.makeText(MainActivity.this, "加载完成", Toast.LENGTH_SHORT).show();
+//                        return false;
+//                    }
+//                });
 
-                    @Override
-                    public boolean onResourceReady(Object resource, Object model, Target target, boolean isFromMemoryCache, boolean isFirstResource) {
-                        Toast.makeText(MainActivity.this, "加载完成", Toast.LENGTH_SHORT).show();
-                        return false;
-                    }
-                });
+        SimpleTarget target = new SimpleTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(Bitmap bitmap, GlideAnimation glideAnimation) {
+                // do something with the bitmap
+                // for demonstration purposes, let's just set it to an ImageView
+//                Bitmap resource = BitmapFactory.decodeResource(getResources(), R.drawable.progress);
+                Bitmap resource;
+                resource = BitmapWaterMarkerUtil.watermarkBitmap(bitmap, null,
+                        new String[]{" 2015年10月的一天傍晚,中年男子张某在路上看到王123456abcdefghigklmnopqrstuvwxyz1111111111111112222222222222222222a", "明天早上好"},
+                        bitmap.getWidth() / ((float) 720) * getResources()
+                                .getDisplayMetrics().density);
+                mImageViewSec.setImageBitmap(resource);
+            }
+        };
+
+
+        Glide.with(this).load(imageUrlStr).asBitmap().into(target);
     }
 }

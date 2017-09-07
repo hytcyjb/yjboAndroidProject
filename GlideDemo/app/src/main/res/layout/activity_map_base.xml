@@ -15,7 +15,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"></Button>
-
+    <Button
+        android:id="@+id/geoDZButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="">
+    </Button>
     <com.yonyoucloud.AMap.CRMMapView
         android:id="@+id/map"
         android:layout_width="match_parent"
