@@ -20,6 +20,7 @@ import com.yonyoucloud.glidedemo.R;
 import com.yonyoucloud.glidedemo.util.GlideCacheUtil;
 import com.yonyoucloud.glidedemo.util.GlideUtil;
 import com.yonyoucloud.util.BitmapWaterMarkerUtil;
+import com.yonyoucloud.util.BitmapWaterUtil;
 
 /**
  * glide的demo，封装api
@@ -112,22 +113,23 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 //                });
 
-        SimpleTarget target = new SimpleTarget<Bitmap>() {
-            @Override
-            public void onResourceReady(Bitmap bitmap, GlideAnimation glideAnimation) {
-                // do something with the bitmap
-                // for demonstration purposes, let's just set it to an ImageView
-//                Bitmap resource = BitmapFactory.decodeResource(getResources(), R.drawable.progress);
-                Bitmap resource;
-                resource = BitmapWaterMarkerUtil.watermarkBitmap(bitmap, null,
-                        new String[]{" 2015年10月的一天傍晚,中年男子张某在路上看到王123456abcdefghigklmnopqrstuvwxyz1111111111111112222222222222222222a", "明天早上好"},
-                        bitmap.getWidth() / ((float) 720) * getResources()
-                                .getDisplayMetrics().density);
-                mImageViewSec.setImageBitmap(resource);
-            }
-        };
-
-
-        Glide.with(this).load(imageUrlStr).asBitmap().into(target);
+//        SimpleTarget target = new SimpleTarget<Bitmap>() {
+//            @Override
+//            public void onResourceReady(Bitmap bitmap, GlideAnimation glideAnimation) {
+//                // do something with the bitmap
+//                // for demonstration purposes, let's just set it to an ImageView
+////                Bitmap resource = BitmapFactory.decodeResource(getResources(), R.drawable.progress);
+//                Bitmap resource;
+//                resource = BitmapWaterMarkerUtil.watermarkBitmap(bitmap, null,
+//                        new String[]{" 2015年10月的一天傍晚,中年男子张某在路上看到王123456abcdefghigklmnopqrstuvwxyz1111111111111112222222222222222222a", "明天早上好"},
+//                        bitmap.getWidth() / ((float) 720) * getResources()
+//                                .getDisplayMetrics().density);
+//                mImageViewSec.setImageBitmap(resource);
+//            }
+//        };
+//        Glide.with(this).load(imageUrlStr).asBitmap().into(target);
+        Glide.with(this).load(imageUrlStr)
+                .transform(new BitmapWaterUtil(this, new String[]{"你好呀杨建波", "yjbo"}))
+                .into(mImageViewSec);
     }
 }
