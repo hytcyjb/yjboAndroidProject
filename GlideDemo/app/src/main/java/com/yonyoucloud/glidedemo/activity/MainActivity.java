@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.GlideBitmapDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.animation.GlideAnimation;
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         //显示图片一
         GlideUtil
-                .showImage(MainActivity.this, mImageView, imageUrlStr);
+                .showImagebyUrl(MainActivity.this, mImageView, imageUrlStr);
 
 //        //显示图片二
 //        GlideUtil
@@ -129,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
 //        };
 //        Glide.with(this).load(imageUrlStr).asBitmap().into(target);
         Glide.with(this).load(imageUrlStr)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .transform(new BitmapWaterUtil(this, new String[]{"你好呀杨建波", "yjbo"}))
                 .into(mImageViewSec);
     }

@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.text.TextPaint;
+import android.util.Log;
 
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
@@ -35,7 +36,7 @@ public class BitmapWaterUtil extends BitmapTransformation {
      * @time 2015年6月3日 下午1:05:49
      * @author zeven
      */
-    public  Bitmap watermarkBitmap(Bitmap src, Bitmap watermark, String[] title, float density) {
+    public Bitmap watermarkBitmap(Bitmap src, Bitmap watermark, String[] title, float density) {
         if (src == null) {
             return null;
         }
@@ -48,10 +49,10 @@ public class BitmapWaterUtil extends BitmapTransformation {
         if (watermark != null) {
             int ww = watermark.getWidth();
             int wh = watermark.getHeight();
-//            paint.setAlpha(50);
+            paint.setAlpha(50);
             paint.setStyle(Paint.Style.FILL);
             cv.drawRect(w - ww - 18, h - wh, w, h, paint);
-            cv.drawBitmap(watermark, w - ww -9, h - wh, null);// 在src的右下角画入水印
+            cv.drawBitmap(watermark, w - ww - 9, h - wh, null);// 在src的右下角画入水印
         }
         // 加入文字
         if (title != null) {
@@ -59,7 +60,7 @@ public class BitmapWaterUtil extends BitmapTransformation {
             Typeface font = Typeface.create(familyName, Typeface.NORMAL);
 
             TextPaint textPaint = new TextPaint();
-            textPaint.setColor(0xFFD98411);
+            textPaint.setColor(Color.parseColor("#000000"));
             textPaint.setTypeface(font);
             textPaint.setTextSize(15 * density);
             textPaint.setTextAlign(Paint.Align.RIGHT);
@@ -71,7 +72,7 @@ public class BitmapWaterUtil extends BitmapTransformation {
             }
             for (int i = per - 1; i >= 0; i--) {//这相当于文字分行
                 if (i == per - 1) {//最后一行
-                    cv.drawText(title[0].trim().substring(i * countPer, t0length - 1),
+                    cv.drawText(title[0].trim().substring(i * countPer, t0length ),
                             w - 8 * density, h - ((per - 1 - i) * 20 + 28 + 20) * density, textPaint);
                 } else {
                     cv.drawText(title[0].trim().substring(0 + i * countPer, 0 + i * countPer + countPer),
@@ -94,7 +95,7 @@ public class BitmapWaterUtil extends BitmapTransformation {
     }
 
 
-    private Paint paint;
+    //    private Paint paint;
     private Context mContext;
     private String[] mWaterContent;
 
@@ -102,25 +103,34 @@ public class BitmapWaterUtil extends BitmapTransformation {
         super(context);
         mContext = context;
         mWaterContent = waterContent;
+        Log.e("yjbo测试--", "BitmapWaterUtil类： BitmapWaterUtil: ==");
         init();
     }
 
     private void init() {
-        paint = new Paint();
-        paint.setColor(Color.parseColor("#469de6"));
-        paint.setStyle(Paint.Style.FILL);
+//        paint = new Paint();
+//        paint.setColor(Color.parseColor("#469de6"));
+//        paint.setStyle(Paint.Style.FILL);
     }
 
     @Override
     protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
         Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.error_water);
+        Log.e("yjbo测试--", "BitmapWaterUtil类： transform: ==");
         return watermarkBitmap(toTransform, bitmap, mWaterContent,
                 toTransform.getWidth() / ((float) 720) * mContext.getResources()
                         .getDisplayMetrics().density);
     }
 
+    /**
+     * 此处id的作用很大，如果不改变则一直使用第一次的内容；
+     * 或者就是 .diskCacheStrategy(DiskCacheStrategy.NONE)不缓存
+     *
+     * @aouto yjbo
+     * @time 17/9/11 上午11:05
+     */
     @Override
     public String getId() {
-        return "com.yonyoucloud.util.BitmapWaterUtil";
+        return "com.yonyoucloud.util.BitmapWaterUtil2";
     }
 }

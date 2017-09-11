@@ -28,7 +28,7 @@ public class GlideUtil {
      * @param imageView      图片控件
      * @param imageUrlString 图片路径
      */
-    public static void showImage(Context context, ImageView imageView, String imageUrlString) {
+    public static void showImagebyUrl(Context context, ImageView imageView, String imageUrlString) {
         showImage(context, imageView, imageUrlString, 0, 0, 1, null);
     }
 
@@ -88,7 +88,7 @@ public class GlideUtil {
     }
 
     /**
-     * api:显示数据
+     * api:显示数据；不对外提供
      *
      * @param imageUrlObject 显示的图片的地址
      * @param imageDefult    显示默认的图片：请求图片地址时，首先显示该图片；占位图
@@ -98,9 +98,8 @@ public class GlideUtil {
      * @aouto yjbo
      * @time 17/8/31 下午2:48
      */
-    public static void showImage(Context mContext, ImageView imageView, Object imageUrlObject, int imageDefult, int imageerror,
+    private static void showImage(Context mContext, ImageView imageView, Object imageUrlObject, int imageDefult, int imageerror,
                                  int shape, RequestListener requestListener) {
-//        Context mContext = context;
         int mImageDefult;//加载完成前图片
         int mImageerror;//加载结束错误图片
         Object mImageUrlObject;//显示的url等图片类型

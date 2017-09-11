@@ -1,13 +1,17 @@
 package com.yy.yjbo.yjboimagecanvas;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,6 +19,8 @@ import android.widget.TextView;
 
 import com.yy.yjbo.yjboimagecanvas.horizonlist.HorizontalListView;
 import com.yy.yjbo.yjboimagecanvas.horizonlist.HorizontalListViewAdapter;
+
+import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -54,12 +60,63 @@ public class MainActivity extends AppCompatActivity {
         testSplit2();
         testHorizon();
         testGetLanguage();
-        testDialog();
+        //testDialog();
+        testContent();
+    }
+
+    /**
+     * 分割文字，如果
+     *
+     * @aouto yjbo
+     * @time 17/9/11 上午9:50
+     */
+    private void testContent() {
+        TextView content = (TextView) findViewById(R.id.content);
+        String contentStr = "ssasaksakhksajksaaaaaaaaabivpsanpsvankvasknsavkvcasvysabusaobsacnpasc;sca;assacksacviuivauii" +
+                "bjjkbcsjkbkjbasckjbscajkbsbjbbjlbaslbsaclkcsalklkbscalbasclbjcsajlb";
+        content.setText(contentStr);
+        setMaxEcplise(content, 2, contentStr);
+    }
+
+    /**
+     * 参数：maxLines 要限制的最大行数
+     * 参数：content  指TextView中要显示的内容
+     * 需求：想显示文本的最后2行，并在最前面添加“...”
+     */
+    public void setMaxEcplise(final TextView mTextView, final int maxLines, final String content) {
+
+        ViewTreeObserver observer = mTextView.getViewTreeObserver();
+        observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+//                mTextView.setText(content);
+                if (mTextView.getLineCount() > maxLines) {
+                    int lineEndIndex = mTextView.getLayout().getLineEnd(mTextView.getLineCount() - 1);
+                    //下面这句代码中：我在项目中用数字3发现效果不好，改成1了
+                    String text = "..." + content.subSequence(3, lineEndIndex);
+                    mTextView.setText(text);
+                } else {
+                    removeGlobalOnLayoutListener(mTextView.getViewTreeObserver(), this);
+                }
+            }
+        });
+    }
+
+    @SuppressWarnings("deprecation")
+    @SuppressLint("NewApi")
+    private void removeGlobalOnLayoutListener(ViewTreeObserver obs, ViewTreeObserver.OnGlobalLayoutListener listener) {
+        if (obs == null)
+            return;
+        if (Build.VERSION.SDK_INT < 16) {
+            obs.removeGlobalOnLayoutListener(listener);
+        } else {
+            obs.removeOnGlobalLayoutListener(listener);
+        }
     }
 
     private void testDialog() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(getString(R.string.dialog_title)+getString(R.string.dialog_title2));//提示如：根据潜在用油总量，建议客户等级为X，是否修改
+        builder.setMessage(getString(R.string.dialog_title) + getString(R.string.dialog_title2));//提示如：根据潜在用油总量，建议客户等级为X，是否修改
         builder.setNeutralButton("是", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -73,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-        builder.setPositiveButton("不知道",null);
+        builder.setPositiveButton("不知道", null);
         builder.create().show();
     }
 
