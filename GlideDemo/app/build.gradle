@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.yonyoucloud.glidedemo"
         minSdkVersion 14
@@ -49,4 +49,5 @@ dependencies {
 
     //分包依赖库
     compile 'com.android.support:multidex:1.0.0'
+
 }

@@ -41,10 +41,13 @@
         <activity
             android:name="com.yonyoucloud.glidedemo.activity.ImageRecycleActivity"
             android:label="列表页面" />
-
+        <!--
+            台式机：ebb7c02e3507f3a1b130b9c852f73352
+            苹果电脑：4db5594d60c338ec4e669b6e7368f20d
+        -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="4db5594d60c338ec4e669b6e7368f20d" />
+            android:value="ebb7c02e3507f3a1b130b9c852f73352" />
 
         <activity android:name="com.yonyoucloud.AMap.activity.ShowMapActivity">
         </activity>

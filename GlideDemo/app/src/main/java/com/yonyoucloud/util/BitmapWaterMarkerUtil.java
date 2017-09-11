@@ -3,6 +3,7 @@ package com.yonyoucloud.util;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.text.TextPaint;
@@ -53,7 +54,7 @@ public class BitmapWaterMarkerUtil {
 
 
             TextPaint textPaint = new TextPaint();
-            textPaint.setColor(0xFFD98411);
+            textPaint.setColor(Color.parseColor("#000000"));
             textPaint.setTypeface(font);
             textPaint.setTextSize(15 * density);
             textPaint.setTextAlign(Paint.Align.RIGHT);
@@ -65,7 +66,7 @@ public class BitmapWaterMarkerUtil {
             }
             for (int i = per - 1; i >= 0; i--) {//这相当于文字分行
                 if (i == per - 1) {//最后一行
-                    cv.drawText(title[0].trim().substring(i * countPer, t0length-1),
+                    cv.drawText(title[0].trim().substring(i * countPer, t0length),
                             w - 8 * density, h - ((per - 1 - i) * 20 + 28 + 20) * density, textPaint);
                 } else {
                     cv.drawText(title[0].trim().substring(0 + i * countPer, 0 + i * countPer + countPer),
