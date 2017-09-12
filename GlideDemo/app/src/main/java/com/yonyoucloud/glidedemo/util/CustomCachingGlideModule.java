@@ -19,7 +19,6 @@ public class CustomCachingGlideModule implements GlideModule {
     @Override
     public void applyOptions(Context context, GlideBuilder builder) {
         String cachePath = context.getExternalCacheDir() + "/yjboCache";
-        //Log.e("yjbo测试--TAG", "CustomCachingGlideModule类： applyOptions: ==" + cachePath);
         builder.setDiskCache(new DiskLruCacheFactory(cachePath, 250 * 1024 * 1024));
     }
 

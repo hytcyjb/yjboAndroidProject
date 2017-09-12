@@ -34,7 +34,7 @@ public class ImageRecycleAdapt extends RecyclerView.Adapter<ImageRecycleAdapt.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        GlideUtil.showImagebyUrl(mcontext,viewHolder.mImage, datas[position]);
+        GlideUtil.showImageByUrl(mcontext,viewHolder.mImage, datas[position]);
     }
 
     @Override

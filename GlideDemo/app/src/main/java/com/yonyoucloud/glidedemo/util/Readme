@@ -1,0 +1,71 @@
+2017年09月12日13时
+图片的工具类GlideUtil.java
+1 图片加载显示相关的
+
+1.1.1 网络url显示图片
+public static void showImageByUrl(Context context, ImageView imageView, String imageUrlString)
+
+1.1.2 本地文件File类型显示图片
+public static void showImageByFile(Context context, ImageView imageView, File imageUrlFile)
+
+1.1.3 本地文件String类型显示图片
+public static void showImageByFileStr(Context context, ImageView imageView, String imageUrlFileStr)
+
+1.1.4 Byte字节流显示图片
+public static void showImageByByte(Context context, ImageView imageView, Byte imageUrlByte)
+
+1.1.5 Integer类型显示图片（比如drawable下的图片）
+public static void showImageByInt(Context context, ImageView imageView, int imageUrlInt)
+
+1.1.6 Uri 本地图片
+public static void showImageByUri(Context context, ImageView imageView, Uri imageUrlInt)
+
+1.2.1 网络url显示图片并且可以监听是否加载完成
+public static void showImageByUrl(Context context, ImageView imageView, String imageUrlString,
+                                      RequestListener requestListener)
+
+1.2.2 本地文件File类型显示图片并且可以监听是否加载完成
+public static void showImageByFile(Context context, ImageView imageView, File imageUrlFile,
+                                       RequestListener requestListener)
+
+1.2.3 本地文件String类型显示图片并且可以监听是否加载完成
+public static void showImageByFileStr(Context context, ImageView imageView, String imageUrlFileStr,
+                                          RequestListener requestListener)
+
+图片加工功能
+2.1.1 给文件添加水印(src：原始文件；watermark：水印图片；title：水印内容；density：屏幕密度)
+public static File watermarkBitmap(File src, Bitmap watermark, String[] title, float density)
+
+2.1.3 给文件添加水印(src：原始图片流；watermark：水印图片；title：水印内容；density：屏幕密度)
+public static Bitmap watermarkBitmap(Bitmap src, Bitmap watermark, String[] title, float density)
+
+2.2.1 将Bitmap保存为文件，并压缩
+public static File saveFile(Bitmap bm, String path, String fileName)
+
+2.3.1 将File文件压缩，并保存为文件
+public static void CompressBitmap(String filePath, String filename, int width)
+
+2.3.2 计算图片的长宽，设置需求的宽度，计算出压缩比例options.inSampleSize
+public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth)
+
+2.4.1 根据文件，旋转角度，旋转图片文件,获取图片流
+public static Bitmap getBitmapFormPath(String filePath, int angle)
+
+2.4.2 根据图片流，旋转角度 旋转图片,获取图片流
+public static Bitmap getBitmapWithAngle(Bitmap bitmap, int angle)
+
+2.4.3 读取图片的旋转的角度
+public static int getBitmapDegree(String path)
+
+其它：
+3.1.1 设置缓存的路径和大小 CustomCachingGlideModule.java
+builder.setDiskCache(new DiskLruCacheFactory(cachePath, 250 * 1024 * 1024));
+<meta-data
+    android:name="com.yonyoucloud.glidedemo.util.CustomCachingGlideModule"
+    android:value="GlideModule" />
+
+3.2.1 清除图片内存缓存 GlideCacheUtil.java
+public boolean clearImageAllCache(Context context, String cachePath)
+
+3.2.2 获取Glide造成的缓存大小
+public String getCacheSize(Context context, String cachePath)

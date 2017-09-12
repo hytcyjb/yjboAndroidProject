@@ -94,7 +94,7 @@ public class GlideUtilSimple {
         Uri imageUrlUri;
         File imageUrlFile;
         if (imageDefult == 0) {
-            imageDefult = R.drawable.progress;
+            imageDefult = R.drawable.moren;
         }
         if (imageerror == 0) {
             imageerror = R.drawable.error;

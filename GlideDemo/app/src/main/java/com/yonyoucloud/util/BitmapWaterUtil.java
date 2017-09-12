@@ -131,6 +131,6 @@ public class BitmapWaterUtil extends BitmapTransformation {
      */
     @Override
     public String getId() {
-        return "com.yonyoucloud.util.BitmapWaterUtil2";
+        return "com.yonyoucloud.util.BitmapWaterUtil";
     }
 }
