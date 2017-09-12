@@ -18,6 +18,8 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
+import com.yonyoucloud.AMap.CRMMapView;
+import com.yonyoucloud.AMap.CRMMapViewUtil;
 import com.yonyoucloud.AMap.activity.ShowMapActivity;
 import com.yonyoucloud.glidedemo.R;
 import com.yonyoucloud.glidedemo.util.GlideCacheUtil;
@@ -65,7 +67,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.show_map_txt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ShowMapActivity.class));
+//                startActivity(new Intent(MainActivity.this, ShowMapActivity.class));
+                new CRMMapViewUtil().initMap(MainActivity.this);
+                CRMMapViewUtil.getAddress(null);
+                CRMMapViewUtil.getLatlon("北京市朝阳区方恒国际中心");
+                new CRMMapViewUtil().getPosList(MainActivity.this,"方恒国际中心");
             }
         });
         findViewById(R.id.cache_txt).setOnClickListener(new View.OnClickListener() {
@@ -120,7 +126,8 @@ public class MainActivity extends AppCompatActivity {
     //显示图片一
     private void showImageOne(int i) {
         String mCachePath = Environment.getExternalStorageDirectory().getAbsolutePath()
-                + "/myImage/20170911160033.jpg";
+//                + "/myImage/20170911160033.jpg";
+                + "/DCIM/20170610212239404.jpg";
         switch (i) {
             case 0://url api 1.1.1
                 GlideUtil

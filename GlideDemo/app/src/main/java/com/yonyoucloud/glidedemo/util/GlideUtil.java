@@ -286,7 +286,8 @@ public class GlideUtil {
 //            h = w * wigthDef / w;
 //            w = wigthDef;
 //        }
-        Bitmap newb = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);// 创建一个新的和SRC长度宽度一样的位图
+        density  =    w * density / wigthDef;
+        Bitmap newb = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_4444);// 创建一个新的和SRC长度宽度一样的位图
         // 需要处理图片太大造成的内存超过的问题,这里我的图片很小所以不写相应代码了
         Canvas cv = new Canvas(newb);
         cv.drawBitmap(src, 0, 0, null);// 在 0，0坐标开始画入src
@@ -360,7 +361,7 @@ public class GlideUtil {
             }
             File myCaptureFile = new File(path, fileName);
             BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(myCaptureFile));
-            bm.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+            bm.compress(Bitmap.CompressFormat.JPEG, 80, bos);
             bos.flush();
             bos.close();
             //压缩

@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.amap.api.location.AMapLocation;
@@ -29,6 +28,7 @@ import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.MyLocationStyle;
 import com.amap.api.services.core.AMapException;
 import com.amap.api.services.core.LatLonPoint;
+import com.amap.api.services.core.PoiItem;
 import com.amap.api.services.geocoder.GeocodeAddress;
 import com.amap.api.services.geocoder.GeocodeQuery;
 import com.amap.api.services.geocoder.GeocodeResult;
@@ -36,117 +36,49 @@ import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeAddress;
 import com.amap.api.services.geocoder.RegeocodeQuery;
 import com.amap.api.services.geocoder.RegeocodeResult;
+import com.amap.api.services.poisearch.PoiResult;
 import com.amap.api.services.poisearch.PoiSearch;
 import com.yonyoucloud.AMap.util.AMapUtil;
 import com.yonyoucloud.glidedemo.R;
 import com.yonyoucloud.util.ToastUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Created by yjbo on 17/9/5.
+ * 高德地图的工具类
+ * Created by yjbo on 17/9/12.
  */
 
-public class CRMMapView extends MapView implements
+public class CRMMapViewUtil implements
         GeocodeSearch.OnGeocodeSearchListener, AMap.OnMarkerClickListener, AMap.InfoWindowAdapter,
-        LocationSource, AMapLocationListener {
-    private AMap aMap;
-    private Marker regeoMarker;
-    private GeocodeSearch geocoderSearch;
+        LocationSource, AMapLocationListener,PoiSearch.OnPoiSearchListener {
+    private static GeocodeSearch geocoderSearch;
     private Context mContext;
     private String addressName;
-    private LatLonPoint latLonPoint = new LatLonPoint(39.90865, 116.39751);
+    private static LatLonPoint latLonPoint = new LatLonPoint(39.90865, 116.39751);
     private ExecutorService mExecutorService;
-    protected ProgressDialog progDialog = null;
+    protected static  ProgressDialog progDialog = null;
     //定位
     private AMapLocationClient mlocationClient;
     private AMapLocationClientOption mLocationOption;
     private OnLocationChangedListener mListener;
-
-    public CRMMapView(Context context) {
-        super(context);
-    }
-
-    public CRMMapView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    public CRMMapView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-    }
-
-    public CRMMapView(Context context, AMapOptions aMapOptions) {
-        super(context, aMapOptions);
+    private static PoiSearch.Query query;
+    public CRMMapViewUtil() {
     }
 
     /**
      * 初始化AMap对象
      */
-    public void initMap(Bundle savedInstanceState, Context context) {
+    public void initMap(Context context) {
         mContext = context;
-        onCreate(savedInstanceState);// 此方法必须重写
-        if (aMap == null) {
-            aMap = getMap();
-            regeoMarker = aMap.addMarker(new MarkerOptions().anchor(0.5f, 0.5f)
-                    .icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory
-                            .decodeResource(getResources(), R.drawable.feiji_market))));
-            aMap.setOnMarkerClickListener(this);
-        }
+
         geocoderSearch = new GeocodeSearch(context);
         geocoderSearch.setOnGeocodeSearchListener(this);
         progDialog = new ProgressDialog(context);
 
-        //绑定信息窗点击事件
-        aMap.setOnInfoWindowClickListener(listener);
-        aMap.setInfoWindowAdapter(this);//AMap类中
-
-        setUpMap();
-
-    }
-
-    /**
-     * 设置一些amap的属性
-     */
-    private void setUpMap() {
-        aMap.setLocationSource(this);// 设置定位监听
-        aMap.getUiSettings().setMyLocationButtonEnabled(true);// 设置默认定位按钮是否显示
-        aMap.setMyLocationEnabled(true);// 设置为true表示显示定位层并可触发定位，false表示隐藏定位层并不可触发定位，默认是false
-        // 设置定位的类型为定位模式 ，可以由定位、跟随或地图根据面向方向旋转几种
-        aMap.setMyLocationType(AMap.LOCATION_TYPE_LOCATE);
-        //更换地图定位图标
-        MyLocationStyle myLocationStyle = new MyLocationStyle();
-        MyLocationStyle myLocationStyle1 = myLocationStyle.myLocationIcon(BitmapDescriptorFactory
-                .fromResource(R.drawable.centre_location));
-        aMap.setMyLocationStyle(myLocationStyle1);
-    }
-
-    private void setLocaMode(int i) {
-        switch (i) {
-            case 0:
-                // 设置定位的类型为定位模式
-                aMap.setMyLocationType(AMap.LOCATION_TYPE_LOCATE);
-
-                mLocationOption.setOnceLocation(true);
-                mlocationClient.setLocationOption(mLocationOption);
-                mlocationClient.startLocation();
-                break;
-            case 1:
-                // 设置定位的类型为 跟随模式
-                aMap.setMyLocationType(AMap.LOCATION_TYPE_MAP_FOLLOW);
-                mLocationOption.setOnceLocation(false);
-                mlocationClient.setLocationOption(mLocationOption);
-                mlocationClient.startLocation();
-                break;
-            case 2:
-                // 设置定位的类型为根据地图面向方向旋转
-                aMap.setMyLocationType(AMap.LOCATION_TYPE_MAP_ROTATE);
-                mLocationOption.setOnceLocation(false);
-                mlocationClient.setLocationOption(mLocationOption);
-                mlocationClient.startLocation();
-                break;
-        }
     }
 
     /**
@@ -186,7 +118,7 @@ public class CRMMapView extends MapView implements
 //                regeoMarker.setTitle(amapLocation.getAddress());
 //                regeoMarker.setSnippet(amapLocation.getLatitude()
 //                        + "====" + amapLocation.getLongitude());
-//                mlocationClient.stopLocation();
+                mlocationClient.stopLocation();
             } else {
                 String errText = "定位失败," + amapLocation.getErrorCode() + ": " + amapLocation.getErrorInfo();
                 Log.e("AmapErr", errText);
@@ -207,18 +139,34 @@ public class CRMMapView extends MapView implements
         mlocationClient = null;
     }
 
+    public   void getPosList(Context context,String keyWord){
+        initMap(context);
+         query = new PoiSearch.Query(keyWord, "", "010");
+        //keyWord表示搜索字符串，
+        //第二个参数表示POI搜索类型，二者选填其一，选用POI搜索类型时建议填写类型代码，码表可以参考下方（而非文字）
+        //cityCode表示POI搜索区域，可以是城市编码也可以是城市名称，也可以传空字符串，空字符串代表全国在全国范围内进行搜索
+        query.setPageSize(20);// 设置每页最多返回多少条poiitem
+        query.setPageNum(1);//设置查询页码
+
+        PoiSearch  poiSearch = new PoiSearch(context, query);
+        poiSearch.setOnPoiSearchListener(this);
+
+    }
     /**
      * 响应逆地理编码
      */
-    public void getAddress(final LatLonPoint latLonPoint) {
+    public static void getAddress(final LatLonPoint latLonPoint0) {
+//        if (latLonPoint0 == null){
+//            latLonPoint0 = latLonPoint;
+//        }
 //        showDialog();
-        RegeocodeQuery query = new RegeocodeQuery(latLonPoint, 200,
+        RegeocodeQuery query = new RegeocodeQuery(latLonPoint, 200*1000,
                 GeocodeSearch.AMAP);// 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
         geocoderSearch.getFromLocationAsyn(query);// 设置异步逆地理编码请求
     }
 
     /**
-     * 地理编码查询回调
+     * 地理编码查询回调---通过地址去查找
      */
     @Override
     public void onGeocodeSearched(GeocodeResult result, int rCode) {
@@ -226,13 +174,14 @@ public class CRMMapView extends MapView implements
         if (rCode == AMapException.CODE_AMAP_SUCCESS) {
             if (result != null && result.getGeocodeAddressList() != null
                     && result.getGeocodeAddressList().size() > 0) {
-                GeocodeAddress address = result.getGeocodeAddressList().get(0);
-                aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                        AMapUtil.convertToLatLng(address.getLatLonPoint()), 15));
-                regeoMarker.setPosition(AMapUtil.convertToLatLng(address
-                        .getLatLonPoint()));
-                addressName = "经纬度值:" + address.getLatLonPoint() + "\n位置描述:"
-                        + address.getFormatAddress();
+                List<GeocodeAddress> geocodeAddressList = result.getGeocodeAddressList();
+                for (int i =0;i<geocodeAddressList.size();i++){
+                    Log.e("yjbo-", "onGeocodeSearched: "+geocodeAddressList.get(i).getFormatAddress()
+                        +"==="+geocodeAddressList.get(i).getLatLonPoint().getLatitude()+"---"+
+                            geocodeAddressList.get(i).getLatLonPoint().getLongitude());
+                }
+                GeocodeAddress address = geocodeAddressList.get(0);
+                addressName = address.getFormatAddress();
                 ToastUtil.show(mContext, addressName);
             } else {
                 ToastUtil.show(mContext, "没有结果");
@@ -243,7 +192,7 @@ public class CRMMapView extends MapView implements
     }
 
     /**
-     * 逆地理编码回调
+     * 逆地理编码回调--通过经纬度进行查找
      */
     @Override
     public void onRegeocodeSearched(RegeocodeResult result, int rCode) {
@@ -253,9 +202,9 @@ public class CRMMapView extends MapView implements
                     && result.getRegeocodeAddress().getFormatAddress() != null) {
                 addressName = result.getRegeocodeAddress().getFormatAddress()
                         + "附近";
-                aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                        AMapUtil.convertToLatLng(latLonPoint), 15));
-                regeoMarker.setPosition(AMapUtil.convertToLatLng(latLonPoint));
+
+                    Log.e("yjbo-", "onRegeocodeSearched: "+addressName);
+
                 ToastUtil.show(mContext, addressName);
             } else {
                 ToastUtil.show(mContext, "没有结果");
@@ -282,11 +231,12 @@ public class CRMMapView extends MapView implements
                         RegeocodeAddress result = geocoderSearch.getFromLocation(query);// 设置同步逆地理编码请求
 
                         if (result != null && result.getFormatAddress() != null) {
-                            aMap.addMarker(new MarkerOptions()
-                                    .position(new LatLng(point.getLatitude(), point.getLongitude()))
-                                    .icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory
-                                            .decodeResource(getResources(), R.drawable.feiji2_market)))
-                                    .title(result.getFormatAddress()));
+//                            aMap.addMarker(new MarkerOptions()
+//                                    .position(new LatLng(point.getLatitude(), point.getLongitude()))
+//                                    .icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory
+//                                            .decodeResource(getResources(), R.drawable.feiji2_market)))
+//                                    .title(result.getFormatAddress()));
+                            Log.e("yjbo-", "getAddresses: "+point.getLatitude()+"==="+point.getLongitude()+"==="+result.getFormatAddress());
                         }
                     } catch (AMapException e) {
                         Message msg = msgHandler.obtainMessage();
@@ -301,7 +251,7 @@ public class CRMMapView extends MapView implements
     /**
      * 响应地理编码
      */
-    public void getLatlon(final String name) {
+    public static void getLatlon(final String name) {
         showDialog();
 
         GeocodeQuery query = new GeocodeQuery(name, "010");// 第一个参数表示地址，第二个参数表示查询城市，中文或者中文全拼，citycode、adcode，
@@ -323,7 +273,7 @@ public class CRMMapView extends MapView implements
     /**
      * 显示进度条对话框
      */
-    public void showDialog() {
+    public static void showDialog() {
         progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progDialog.setIndeterminate(false);
         progDialog.setCancelable(true);
@@ -344,7 +294,7 @@ public class CRMMapView extends MapView implements
      * 方法必须重写
      */
     public void onDestroyMap() {
-        super.onDestroy();
+
         if (mExecutorService != null) {
             mExecutorService.shutdownNow();
         }
@@ -389,5 +339,21 @@ public class CRMMapView extends MapView implements
 //如果想修改自定义Infow中内容，请通过view找到它并修改
         ((TextView) view.findViewById(R.id.info_title)).setText("标题：" + marker.getTitle());
         ((TextView) view.findViewById(R.id.info_content)).setText("内容：" + marker.getSnippet());
+    }
+
+    //兴趣点返回的
+    @Override
+    public void onPoiSearched(PoiResult poiResult, int i) {
+        dismissDialog();
+        ArrayList<PoiItem> pois = poiResult.getPois();
+        for (int h = 0;h<pois.size();h++) {
+            Log.e("yjbo-", "onPoiSearched: " + pois.get(h).getAdName()+"=-="+pois.get(h).getBusinessArea());
+        }
+    }
+
+    @Override
+    public void onPoiItemSearched(PoiItem poiItem, int i) {
+        dismissDialog();
+        Log.e("yjbo-", "onPoiItemSearched: " +poiItem.getAdName()+"=-="+poiItem.getBusinessArea());
     }
 }
