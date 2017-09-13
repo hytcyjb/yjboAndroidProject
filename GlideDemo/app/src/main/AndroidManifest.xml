@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -17,20 +16,20 @@
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
      
-
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
     <application
-        android:name="com.yonyoucloud.glidedemo.MyApp"
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.yonyoucloud.glidedemo.activity.MainActivity">
+        <activity android:name=".activity.TestGlideMapActivity">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
@@ -39,7 +38,7 @@
             android:value="GlideModule" />
 
         <activity
-            android:name="com.yonyoucloud.glidedemo.activity.ImageRecycleActivity"
+            android:name=".activity.ImageRecycleActivity"
             android:label="列表页面" />
         <!--
             台式机：ebb7c02e3507f3a1b130b9c852f73352
@@ -47,13 +46,13 @@
         -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="ebb7c02e3507f3a1b130b9c852f73352" />
+            android:value="4db5594d60c338ec4e669b6e7368f20d" />
 
-        <activity android:name="com.yonyoucloud.AMap.activity.ShowMapActivity">
-        </activity>
+        <activity android:name="com.yonyoucloud.AMap.activity.ShowMapActivity"></activity>
         <!-- 定位需要的服务 使用2.0的定位需要加上这个 -->
-        <service android:name="com.amap.api.location.APSService" >
-        </service>
+        <service android:name="com.amap.api.location.APSService"></service>
+
+        <activity android:name="com.yonyoucloud.AMap.activity.testMapActivity"></activity>
     </application>
 
 </manifest>

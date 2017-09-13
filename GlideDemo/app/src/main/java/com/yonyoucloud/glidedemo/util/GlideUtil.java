@@ -85,7 +85,7 @@ public class GlideUtil {
                 .placeholder(R.drawable.moren)
                 .error(R.drawable.error)
                 .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(imageView);
     }
 
@@ -183,7 +183,7 @@ public class GlideUtil {
                 mLoadString.error(mImageerror);
             }
             mLoadString.centerCrop();
-            mLoadString.diskCacheStrategy(DiskCacheStrategy.NONE);//只缓存一个尺寸的图片
+            mLoadString.diskCacheStrategy(DiskCacheStrategy.SOURCE);//只缓存一个尺寸的图片
             mLoadString.listener(mRequestListener);
             mLoadString.into(imageView);
 
@@ -193,7 +193,7 @@ public class GlideUtil {
                     .placeholder(mImageDefult)
                     .error(mImageerror)
                     .centerCrop()
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .into(imageView);
         } else if (mImageUrlObject instanceof Uri) {//Uri
             Uri imageUrlUri = Uri.parse(String.valueOf(mImageUrlObject));
@@ -201,7 +201,7 @@ public class GlideUtil {
                     .placeholder(mImageDefult)
                     .error(mImageerror)
                     .centerCrop()
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .into(imageView);
         } else if (mImageUrlObject instanceof File) {//File
             File imageUrlFile = new File(String.valueOf(mImageUrlObject));
@@ -209,7 +209,7 @@ public class GlideUtil {
                     .placeholder(mImageDefult)
                     .error(mImageerror)
                     .centerCrop()
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .into(imageView);
         } else {//其它类型，不支持的类型
             imageView.setBackgroundResource(R.drawable.moren);
@@ -259,7 +259,7 @@ public class GlideUtil {
         // Bitmap bitmap =BitmapFactory.decodeFile(filePath+fileName);
         Bitmap bitmapNew = watermarkBitmap(bitmap, watermark, title, density);
         //也可以给加了水印的图片重新命名
-        File file = saveFile(bitmapNew, src.getParent(), src.getName());
+        File file = saveFile(bitmapNew, filePath, fileName);
         return file;
     }
 
@@ -402,7 +402,8 @@ public class GlideUtil {
 
             options.inJustDecodeBounds = false;
             bitmap = BitmapFactory.decodeFile(filePath, options);
-
+            if (bitmap == null){
+            }
             if (filename.toLowerCase(Locale.US).contains(".png")) {
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
             } else {

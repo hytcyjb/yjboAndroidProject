@@ -12,19 +12,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
 import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
-import com.yonyoucloud.AMap.CRMMapView;
 import com.yonyoucloud.AMap.CRMMapViewUtil;
 import com.yonyoucloud.AMap.activity.ShowMapActivity;
+import com.yonyoucloud.AMap.activity.testMapActivity;
 import com.yonyoucloud.glidedemo.R;
 import com.yonyoucloud.glidedemo.util.GlideCacheUtil;
 import com.yonyoucloud.glidedemo.util.GlideUtil;
-import com.yonyoucloud.util.BitmapWaterMarkerUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -32,11 +27,12 @@ import java.io.IOException;
 
 /**
  * glide的demo，封装api
+ * 测试Activity
  *
  * @author yjbo
  * @data 17/8/31 上午11:11
  */
-public class MainActivity extends AppCompatActivity {
+public class TestGlideMapActivity extends AppCompatActivity {
 
     private ImageView mImageView;
     private ImageView mImageViewSec;
@@ -61,17 +57,17 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.show_image_txt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ImageRecycleActivity.class));
+                startActivity(new Intent(TestGlideMapActivity.this, ImageRecycleActivity.class));
             }
         });
         findViewById(R.id.show_map_txt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(MainActivity.this, ShowMapActivity.class));
-                new CRMMapViewUtil().initMap(MainActivity.this);
-                CRMMapViewUtil.getAddress(null);
-                CRMMapViewUtil.getLatlon("北京市朝阳区方恒国际中心");
-                new CRMMapViewUtil().getPosList(MainActivity.this,"方恒国际中心");
+                startActivity(new Intent(TestGlideMapActivity.this, testMapActivity.class));
+//                new CRMMapViewUtil().initMap(TestGlideMapActivity.this);
+//                CRMMapViewUtil.getAddress(null);
+//                CRMMapViewUtil.getLatlon("北京市朝阳区方恒国际中心");
+//                new CRMMapViewUtil().getPosList(TestGlideMapActivity.this, "方恒国际中心");
             }
         });
         findViewById(R.id.cache_txt).setOnClickListener(new View.OnClickListener() {
@@ -80,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 //缓存
                 String cachePath = getExternalCacheDir() + "/yjboCache";
                 GlideCacheUtil glideCacheUtil = new GlideCacheUtil();
-                String cacheSize = glideCacheUtil.getCacheSize(MainActivity.this, cachePath);
-                Toast.makeText(MainActivity.this, "内存大小=" + cacheSize, Toast.LENGTH_SHORT).show();
+                String cacheSize = glideCacheUtil.getCacheSize(TestGlideMapActivity.this, cachePath);
+                Toast.makeText(TestGlideMapActivity.this, "内存大小=" + cacheSize, Toast.LENGTH_SHORT).show();
             }
         });
         findViewById(R.id.clear_cache_txt).setOnClickListener(new View.OnClickListener() {
@@ -89,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String cachePath = getExternalCacheDir() + "/yjboCache";
                 GlideCacheUtil glideCacheUtil = new GlideCacheUtil();
-                boolean b = glideCacheUtil.clearImageAllCache(MainActivity.this, cachePath);
+                boolean b = glideCacheUtil.clearImageAllCache(TestGlideMapActivity.this, cachePath);
                 if (b) {
-                    Toast.makeText(MainActivity.this, "清除完成", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TestGlideMapActivity.this, "清除完成", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -107,16 +103,16 @@ public class MainActivity extends AppCompatActivity {
 
         //显示图片二
         GlideUtil
-                .showImageByUrl(MainActivity.this, mImageViewSec, imageUrlStr2, new RequestListener() {
+                .showImageByUrl(TestGlideMapActivity.this, mImageViewSec, imageUrlStr2, new RequestListener() {
                     @Override
                     public boolean onException(Exception e, Object model, Target target, boolean isFirstResource) {
-                        Toast.makeText(MainActivity.this, "加载失败", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TestGlideMapActivity.this, "加载失败", Toast.LENGTH_SHORT).show();
                         return false;
                     }
 
                     @Override
                     public boolean onResourceReady(Object resource, Object model, Target target, boolean isFromMemoryCache, boolean isFirstResource) {
-                        Toast.makeText(MainActivity.this, "加载完成", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TestGlideMapActivity.this, "加载完成", Toast.LENGTH_SHORT).show();
                         return false;
                     }
                 });
@@ -126,44 +122,44 @@ public class MainActivity extends AppCompatActivity {
     //显示图片一
     private void showImageOne(int i) {
         String mCachePath = Environment.getExternalStorageDirectory().getAbsolutePath()
-//                + "/myImage/20170911160033.jpg";
-                + "/DCIM/20170610212239404.jpg";
+                + "/myImage/20170630092621.jpg";
+//                + "/DCIM/20170610212239404.jpg";
         switch (i) {
             case 0://url api 1.1.1
                 GlideUtil
-                        .showImageByUrl(MainActivity.this, mImageView, imageUrlStr);
+                        .showImageByUrl(TestGlideMapActivity.this, mImageView, imageUrlStr);
                 break;
             case 1://File api 1.1.2
 
                 GlideUtil
-                        .showImageByFile(MainActivity.this, mImageView, new File(mCachePath));
+                        .showImageByFile(TestGlideMapActivity.this, mImageView, new File(mCachePath));
                 break;
             case 2://File String api 1.1.3
                 GlideUtil
-                        .showImageByFileStr(MainActivity.this, mImageView, mCachePath);
+                        .showImageByFileStr(TestGlideMapActivity.this, mImageView, mCachePath);
                 break;
             case 3://1.1.4 Byte字节流显示图片
                 byte[] bitmapByte = getBitmapByte(BitmapFactory.decodeResource(getResources(),
                         R.drawable.iptcnpqc));
                 GlideUtil
-                        .showImageByByte(MainActivity.this, mImageView, bitmapByte);
+                        .showImageByByte(TestGlideMapActivity.this, mImageView, bitmapByte);
                 break;
             case 4://1.1.5 Integer类型显示图片（比如drawable下的图片）
                 GlideUtil
-                        .showImageByInt(MainActivity.this, mImageView, R.drawable.progress);
+                        .showImageByInt(TestGlideMapActivity.this, mImageView, R.drawable.progress);
                 break;
             case 5://1.1.6 Uri 本地图片
                 GlideUtil
-                        .showImageByUri(MainActivity.this, mImageView, resourceIdToUri(MainActivity.this
-                                ,R.drawable.iptcnpqc));
+                        .showImageByUri(TestGlideMapActivity.this, mImageView, resourceIdToUri(TestGlideMapActivity.this
+                                , R.drawable.iptcnpqc));
                 break;
             case 6://2.1.1 给文件添加水印,并显示
                 GlideUtil
-                        .watermarkBitmap(new File(mCachePath),null,new String[]{"海定区","yjbo"},
-                        MainActivity.this.getResources().getDisplayMetrics().density);
+                        .watermarkBitmap(new File(mCachePath), null, new String[]{"海定区", "yjbo"},
+                                TestGlideMapActivity.this.getResources().getDisplayMetrics().density);
 
                 GlideUtil
-                        .showImageByFile(MainActivity.this, mImageView, new File(mCachePath));
+                        .showImageByFile(TestGlideMapActivity.this, mImageView, new File(mCachePath));
                 break;
             case 7:
                 break;

@@ -3,8 +3,11 @@ package com.yonyoucloud.AMap.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
@@ -23,6 +26,8 @@ import com.amap.api.services.geocoder.RegeocodeAddress;
 import com.amap.api.services.geocoder.RegeocodeQuery;
 import com.amap.api.services.geocoder.RegeocodeResult;
 import com.yonyoucloud.AMap.CRMMapView;
+import com.yonyoucloud.AMap.CRMMapViewUtil;
+import com.yonyoucloud.AMap.bean.MapClass;
 import com.yonyoucloud.AMap.util.AMapUtil;
 import com.yonyoucloud.util.ToastUtil;
 import com.yonyoucloud.glidedemo.R;
@@ -38,55 +43,33 @@ import java.util.concurrent.Executors;
  * @aouto yjbo
  * @time 17/9/4 下午10:27
  */
-public class ShowMapActivity extends MapBaseActivity implements View.OnClickListener {
-    //implements
-//    GeocodeSearch.OnGeocodeSearchListener, View.OnClickListener, AMap.OnMarkerClickListener
-//    private GeocodeSearch geocoderSearch;
-//    private String addressName;
-//    private AMap aMap;
+public class ShowMapActivity extends AppCompatActivity implements View.OnClickListener {
     private CRMMapView mapView;
+    private TextView poi_txt;
     private LatLonPoint latLonPoint = new LatLonPoint(39.90865, 116.39751);
-    //    private Marker regeoMarker;
-//    private ExecutorService mExecutorService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_base);
         mapView = (CRMMapView) findViewById(R.id.map);
+        mapView.onCreate(savedInstanceState);// 此方法必须重写
         mapView.initMap(savedInstanceState, ShowMapActivity.this);
+        initView();
         init();
     }
 
+    private void initView() {
+        findViewById(R.id.caozuo_1).setOnClickListener(this);
+        findViewById(R.id.caozuo_2).setOnClickListener(this);
+        findViewById(R.id.caozuo_3).setOnClickListener(this);
+        findViewById(R.id.caozuo_4).setOnClickListener(this);
+    }
 
-//    /**
-//     * 初始化AMap对象
-//     */
-//    private void initMap(Bundle savedInstanceState) {
-//        mapView.onCreate(savedInstanceState);// 此方法必须重写
-//        if (aMap == null) {
-//            aMap = mapView.getMap();
-//            regeoMarker = aMap.addMarker(new MarkerOptions().anchor(0.5f, 0.5f)
-//                    .icon(BitmapDescriptorFactory
-//                            .defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
-//            aMap.setOnMarkerClickListener(this);
-//        }
-//        geocoderSearch = new GeocodeSearch(this);
-//        geocoderSearch.setOnGeocodeSearchListener(this);
-//
-//    }
 
     private void init() {
-        Button regeoButton = (Button) findViewById(R.id.geoButton);
-        Button regeoButton_ = (Button) findViewById(R.id.regeoButton);
-        regeoButton.setText("ResGeoCoding(39.90865,116.39751)");
-        regeoButton.setOnClickListener(this);
-        regeoButton_.setVisibility(View.VISIBLE);
-        regeoButton_.setText("逆地理编码同步方法(线程池)");
-        regeoButton_.setOnClickListener(this);
-        Button geoButton = (Button) findViewById(R.id.geoDZButton);
-        geoButton.setText("GeoCoding(北京市朝阳区方恒国际中心A座)");
-        geoButton.setOnClickListener(this);
+        poi_txt = (TextView) findViewById(R.id.poi_txt);
+
     }
 
     /**
@@ -127,174 +110,68 @@ public class ShowMapActivity extends MapBaseActivity implements View.OnClickList
     }
 
 
-//    /**
-//     * 响应逆地理编码
-//     */
-//    public void getAddress(final LatLonPoint latLonPoint) {
-//        showDialog();
-//        RegeocodeQuery query = new RegeocodeQuery(latLonPoint, 200,
-//                GeocodeSearch.AMAP);// 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
-//        geocoderSearch.getFromLocationAsyn(query);// 设置异步逆地理编码请求
-//    }
-//
-//    /**
-//     * 地理编码查询回调
-//     */
-//    @Override
-//    public void onGeocodeSearched(GeocodeResult result, int rCode) {
-//        dismissDialog();
-//        if (rCode == AMapException.CODE_AMAP_SUCCESS) {
-//            if (result != null && result.getGeocodeAddressList() != null
-//                    && result.getGeocodeAddressList().size() > 0) {
-//                GeocodeAddress address = result.getGeocodeAddressList().get(0);
-//                aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-//                        AMapUtil.convertToLatLng(address.getLatLonPoint()), 15));
-//                regeoMarker.setPosition(AMapUtil.convertToLatLng(address
-//                        .getLatLonPoint()));
-//                addressName = "经纬度值:" + address.getLatLonPoint() + "\n位置描述:"
-//                        + address.getFormatAddress();
-//                ToastUtil.show(ShowMapActivity.this, addressName);
-//            } else {
-//                ToastUtil.show(ShowMapActivity.this, "没有结果");
-//            }
-//        } else {
-//            ToastUtil.showerror(this, rCode);
-//        }
-//    }
-//
-//    /**
-//     * 逆地理编码回调
-//     */
-//    @Override
-//    public void onRegeocodeSearched(RegeocodeResult result, int rCode) {
-//        dismissDialog();
-//        if (rCode == AMapException.CODE_AMAP_SUCCESS) {
-//            if (result != null && result.getRegeocodeAddress() != null
-//                    && result.getRegeocodeAddress().getFormatAddress() != null) {
-//                addressName = result.getRegeocodeAddress().getFormatAddress()
-//                        + "附近";
-//                aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-//                        AMapUtil.convertToLatLng(latLonPoint), 15));
-//                regeoMarker.setPosition(AMapUtil.convertToLatLng(latLonPoint));
-//                ToastUtil.show(ShowMapActivity.this, addressName);
-//            } else {
-//                ToastUtil.show(ShowMapActivity.this, "没有结果");
-//            }
-//        } else {
-//            ToastUtil.showerror(this, rCode);
-//        }
-//    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            /**
-             * 响应逆地理编码按钮
-             */
-            case R.id.geoButton:
-                mapView.getAddress(latLonPoint);
+            case R.id.caozuo_1:
+                //1.0 显示Marker标识
+                mapView.showMarker(new LatLng(latLonPoint.getLatitude(), latLonPoint.getLongitude()), "测试地址");
+
                 break;
-            case R.id.regeoButton:
-                mapView.getAddresses(readLatLonPoints());
+            case R.id.caozuo_2:
+                //1.1 显示当前人的位置
+                mapView.setUpMap(0);
+                mapView.setMapViewInterface(new CRMMapView.MapViewInterface() {
+                    @Override
+                    public void curAddr(MapClass mapClass) {
+                        Log.e("yjbo测试--", "ShowMapActivity类： curAddr: ==" + mapClass.toString());
+                    }
+                });
+
                 break;
-            case R.id.geoDZButton:
-                mapView.getLatlon("北京市朝阳区方恒国际中心A座");
+            case R.id.caozuo_3:
+                //1.2 获取兴趣点，并显示出来
+                new CRMMapViewUtil().getPosList(ShowMapActivity.this, "肯德基", "北京")
+                        .setMapInterface(new CRMMapViewUtil.MapInterface() {
+                            @Override
+                            public void curAddr(MapClass mapClass) {
+
+                            }
+
+                            @Override
+                            public void latlonToAddress(MapClass mapClass) {
+                            }
+
+                            @Override
+                            public void AddressTolatlon(MapClass mapClass) {
+                            }
+
+                            @Override
+                            public void poiList(List<MapClass> poiList) {
+                                if (poiList != null) {
+                                    mapView.showMarkerList(poiList);
+//                            for (int i = 0; i < poiList.size(); i++) {
+//                                MapClass mapClass = poiList.get(i);
+//                                Log.e("yjbo测试--", "testMapActivity类： poiList: ==" + mapClass.toString());
+//                            }
+                                }
+                            }
+                        });
+
+                break;
+            case R.id.caozuo_4:
+                List<LatLng> latLngs = new ArrayList<LatLng>();
+                latLngs.add(new LatLng(39.999391,116.135972));
+                latLngs.add(new LatLng(39.898323,116.057694));
+                latLngs.add(new LatLng(39.900430,116.265061));
+                latLngs.add(new LatLng(39.955192,116.140092));
+                //画线
+                mapView.showLine(latLngs);
                 break;
             default:
                 break;
         }
     }
 
-//    /**
-//     * 响应逆地理编码的批量请求
-//     */
-//    private void getAddresses( List<LatLonPoint> geopointlist) {
-//        if (mExecutorService == null) {
-//            mExecutorService = Executors.newSingleThreadExecutor();
-//        }
-////        List<LatLonPoint> geopointlist = readLatLonPoints();
-//        for (final LatLonPoint point : geopointlist) {
-//            mExecutorService.submit(new Runnable() {
-//                @Override
-//                public void run() {
-//                    try {
-//                        RegeocodeQuery query = new RegeocodeQuery(point, 200,
-//                                GeocodeSearch.AMAP);// 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
-//                        RegeocodeAddress result = geocoderSearch.getFromLocation(query);// 设置同步逆地理编码请求
-//
-//                        if (result != null && result.getFormatAddress() != null) {
-//                            aMap.addMarker(new MarkerOptions()
-//                                    .position(new LatLng(point.getLatitude(), point.getLongitude()))
-//                                    .title(result.getFormatAddress()));
-//                        }
-//                    } catch (AMapException e) {
-//                        Message msg = msgHandler.obtainMessage();
-//                        msg.arg1 = e.getErrorCode();
-//                        msgHandler.sendMessage(msg);
-//                    }
-//                }
-//            });
-//        }
-//    }
-//
-//    /**
-//     * 响应地理编码
-//     */
-//    public void getLatlon(final String name) {
-//        showDialog();
-//
-//        GeocodeQuery query = new GeocodeQuery(name, "010");// 第一个参数表示地址，第二个参数表示查询城市，中文或者中文全拼，citycode、adcode，
-//        geocoderSearch.getFromLocationNameAsyn(query);// 设置同步地理编码请求
-//    }
-//
-//    private Handler msgHandler = new Handler() {
-//        public void handleMessage(Message msg) {
-//            ToastUtil.showerror(ShowMapActivity.this, msg.arg1);
-//        }
-//    };
 
-    private List<LatLonPoint> readLatLonPoints() {
-        List<LatLonPoint> points = new ArrayList<LatLonPoint>();
-        for (int i = 0; i < coords.length; i += 2) {
-            points.add(new LatLonPoint(coords[i + 1], coords[i]));
-        }
-        return points;
-    }
-
-    private double[] coords = {116.339925, 39.976587,
-            116.328467, 39.976357,
-            116.345289, 39.966556,
-            116.321428, 39.967477,
-            116.358421, 39.961556,
-            116.366146, 39.961293,
-            116.359666, 39.953234,
-            116.373013, 39.948628,
-            116.355374, 39.94037,
-            116.41713, 39.940666,
-            116.433309, 39.940929,
-            116.461933, 39.949319,
-            116.473907, 39.938461,
-            116.478971, 39.933854,
-            116.491631, 39.96603,
-            116.489399, 39.971029,
-            116.495364, 39.98517,
-            116.530812, 39.99556,
-            116.5607, 39.996023,
-            116.525982, 40.022825,
-            116.568511, 40.016843,
-            116.584046, 40.014608,
-            116.422599, 40.012439,
-            116.44131, 40.00616,
-            116.39303, 40.026998,
-            116.384147, 40.039222,
-            120.196124, 33.418433,
-            118.779532, 32.034404,
-            94.403114, 29.621356,
-            116.388352, 39.928242};
-
-//    @Override
-//    public boolean onMarkerClick(Marker marker) {
-//        marker.showInfoWindow();
-//        return false;
-//    }
 }

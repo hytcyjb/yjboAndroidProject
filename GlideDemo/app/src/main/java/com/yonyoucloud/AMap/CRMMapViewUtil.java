@@ -38,6 +38,7 @@ import com.amap.api.services.geocoder.RegeocodeQuery;
 import com.amap.api.services.geocoder.RegeocodeResult;
 import com.amap.api.services.poisearch.PoiResult;
 import com.amap.api.services.poisearch.PoiSearch;
+import com.yonyoucloud.AMap.bean.MapClass;
 import com.yonyoucloud.AMap.util.AMapUtil;
 import com.yonyoucloud.glidedemo.R;
 import com.yonyoucloud.util.ToastUtil;
@@ -53,19 +54,18 @@ import java.util.concurrent.Executors;
  */
 
 public class CRMMapViewUtil implements
-        GeocodeSearch.OnGeocodeSearchListener, AMap.OnMarkerClickListener, AMap.InfoWindowAdapter,
-        LocationSource, AMapLocationListener,PoiSearch.OnPoiSearchListener {
+        GeocodeSearch.OnGeocodeSearchListener,
+        AMapLocationListener, PoiSearch.OnPoiSearchListener {
+    //    LocationSource,
     private static GeocodeSearch geocoderSearch;
-    private Context mContext;
     private String addressName;
-    private static LatLonPoint latLonPoint = new LatLonPoint(39.90865, 116.39751);
     private ExecutorService mExecutorService;
-    protected static  ProgressDialog progDialog = null;
+    protected static ProgressDialog progDialog = null;
     //定位
     private AMapLocationClient mlocationClient;
     private AMapLocationClientOption mLocationOption;
-    private OnLocationChangedListener mListener;
-    private static PoiSearch.Query query;
+//    private OnLocationChangedListener mListener;
+
     public CRMMapViewUtil() {
     }
 
@@ -73,22 +73,15 @@ public class CRMMapViewUtil implements
      * 初始化AMap对象
      */
     public void initMap(Context context) {
-        mContext = context;
-
-        geocoderSearch = new GeocodeSearch(context);
-        geocoderSearch.setOnGeocodeSearchListener(this);
-        progDialog = new ProgressDialog(context);
 
     }
 
     /**
-     * 激活定位
+     * 获取当前的位置
      */
-    @Override
-    public void activate(OnLocationChangedListener listener) {
-        mListener = listener;
+    public CRMMapViewUtil getCurLoca(Context context) {
         if (mlocationClient == null) {
-            mlocationClient = new AMapLocationClient(mContext);
+            mlocationClient = new AMapLocationClient(context);
             mLocationOption = new AMapLocationClientOption();
             //设置定位监听
             mlocationClient.setLocationListener(this);
@@ -102,23 +95,21 @@ public class CRMMapViewUtil implements
             // 在单次定位情况下，定位无论成功与否，都无需调用stopLocation()方法移除请求，定位sdk内部会移除
             mlocationClient.startLocation();
         }
+        return this;
     }
+
 
     /**
      * 定位成功后回调函数
      */
     @Override
     public void onLocationChanged(AMapLocation amapLocation) {
-        if (mListener != null && amapLocation != null) {
+        if (amapLocation != null) {
             if (amapLocation != null
                     && amapLocation.getErrorCode() == 0) {
-                mListener.onLocationChanged(amapLocation);// 显示系统小蓝点
-                Log.e("yjbo测试--", "LocationModeSourceActivity_Old类： onLocationChanged: ==" + amapLocation.getLatitude()
-                        + "====" + amapLocation.getLongitude());
-//                regeoMarker.setTitle(amapLocation.getAddress());
-//                regeoMarker.setSnippet(amapLocation.getLatitude()
-//                        + "====" + amapLocation.getLongitude());
-                mlocationClient.stopLocation();
+                mapInterface.curAddr(new MapClass(amapLocation.getAddress(), ""
+                        , amapLocation.getLatitude(), amapLocation.getLongitude()));
+                mlocationClient.stopLocation();//只定位一次
             } else {
                 String errText = "定位失败," + amapLocation.getErrorCode() + ": " + amapLocation.getErrorInfo();
                 Log.e("AmapErr", errText);
@@ -126,73 +117,24 @@ public class CRMMapViewUtil implements
         }
     }
 
+
     /**
-     * 停止定位
+     * 响应逆地理编码--通过经纬度进行查找地址
      */
-    @Override
-    public void deactivate() {
-        mListener = null;
-        if (mlocationClient != null) {
-            mlocationClient.stopLocation();
-            mlocationClient.onDestroy();
+    public void getAddress(Context context, final LatLonPoint latLonPoint) {
+        if (latLonPoint == null) {
+            return;
         }
-        mlocationClient = null;
-    }
-
-    public   void getPosList(Context context,String keyWord){
-        initMap(context);
-         query = new PoiSearch.Query(keyWord, "", "010");
-        //keyWord表示搜索字符串，
-        //第二个参数表示POI搜索类型，二者选填其一，选用POI搜索类型时建议填写类型代码，码表可以参考下方（而非文字）
-        //cityCode表示POI搜索区域，可以是城市编码也可以是城市名称，也可以传空字符串，空字符串代表全国在全国范围内进行搜索
-        query.setPageSize(20);// 设置每页最多返回多少条poiitem
-        query.setPageNum(1);//设置查询页码
-
-        PoiSearch  poiSearch = new PoiSearch(context, query);
-        poiSearch.setOnPoiSearchListener(this);
-
-    }
-    /**
-     * 响应逆地理编码
-     */
-    public static void getAddress(final LatLonPoint latLonPoint0) {
-//        if (latLonPoint0 == null){
-//            latLonPoint0 = latLonPoint;
-//        }
-//        showDialog();
-        RegeocodeQuery query = new RegeocodeQuery(latLonPoint, 200*1000,
+        geocoderSearch = new GeocodeSearch(context);
+        geocoderSearch.setOnGeocodeSearchListener(this);
+        showDialog(context);
+        RegeocodeQuery query = new RegeocodeQuery(latLonPoint, 200 * 1000,
                 GeocodeSearch.AMAP);// 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
         geocoderSearch.getFromLocationAsyn(query);// 设置异步逆地理编码请求
     }
 
     /**
-     * 地理编码查询回调---通过地址去查找
-     */
-    @Override
-    public void onGeocodeSearched(GeocodeResult result, int rCode) {
-        dismissDialog();
-        if (rCode == AMapException.CODE_AMAP_SUCCESS) {
-            if (result != null && result.getGeocodeAddressList() != null
-                    && result.getGeocodeAddressList().size() > 0) {
-                List<GeocodeAddress> geocodeAddressList = result.getGeocodeAddressList();
-                for (int i =0;i<geocodeAddressList.size();i++){
-                    Log.e("yjbo-", "onGeocodeSearched: "+geocodeAddressList.get(i).getFormatAddress()
-                        +"==="+geocodeAddressList.get(i).getLatLonPoint().getLatitude()+"---"+
-                            geocodeAddressList.get(i).getLatLonPoint().getLongitude());
-                }
-                GeocodeAddress address = geocodeAddressList.get(0);
-                addressName = address.getFormatAddress();
-                ToastUtil.show(mContext, addressName);
-            } else {
-                ToastUtil.show(mContext, "没有结果");
-            }
-        } else {
-            ToastUtil.showerror(mContext, rCode);
-        }
-    }
-
-    /**
-     * 逆地理编码回调--通过经纬度进行查找
+     * 逆地理编码回调--通过经纬度进行查找地址
      */
     @Override
     public void onRegeocodeSearched(RegeocodeResult result, int rCode) {
@@ -202,17 +144,52 @@ public class CRMMapViewUtil implements
                     && result.getRegeocodeAddress().getFormatAddress() != null) {
                 addressName = result.getRegeocodeAddress().getFormatAddress()
                         + "附近";
-
-                    Log.e("yjbo-", "onRegeocodeSearched: "+addressName);
-
-                ToastUtil.show(mContext, addressName);
+                //result.getRegeocodeQuery().getPoint().getLatitude()
+                mapInterface.latlonToAddress(new MapClass(addressName, "", 0.0, 0.0));
             } else {
-                ToastUtil.show(mContext, "没有结果");
+                mapInterface.latlonToAddress(null);
             }
         } else {
-            ToastUtil.showerror(mContext, rCode);
+            mapInterface.latlonToAddress(null);
         }
     }
+
+    /**
+     * 响应地理编码---通过地址去查找经纬度
+     */
+    public void getLatlon(Context context, String name, String city) {
+        geocoderSearch = new GeocodeSearch(context);
+        geocoderSearch.setOnGeocodeSearchListener(this);
+        showDialog(context);
+        GeocodeQuery query = new GeocodeQuery(name, city);// 第一个参数表示地址，第二个参数表示查询城市，中文或者中文全拼，citycode、adcode，010
+        geocoderSearch.getFromLocationNameAsyn(query);// 设置同步地理编码请求
+    }
+
+    /**
+     * 地理编码查询回调---通过地址去查找经纬度
+     */
+    @Override
+    public void onGeocodeSearched(GeocodeResult result, int rCode) {
+        dismissDialog();
+        if (rCode == AMapException.CODE_AMAP_SUCCESS) {
+            if (result != null && result.getGeocodeAddressList() != null
+                    && result.getGeocodeAddressList().size() > 0) {
+                List<GeocodeAddress> geocodeAddressList = result.getGeocodeAddressList();
+                GeocodeAddress address = geocodeAddressList.get(0);
+                addressName = address.getFormatAddress();
+//                ToastUtil.show(mContext, addressName);
+                mapInterface.AddressTolatlon(new MapClass(addressName, "",
+                        address.getLatLonPoint().getLatitude(), address.getLatLonPoint().getLongitude()));
+            } else {
+//                ToastUtil.show(mContext, "没有结果");
+                mapInterface.latlonToAddress(null);
+            }
+        } else {
+//            ToastUtil.showerror(mContext, rCode);
+            mapInterface.latlonToAddress(null);
+        }
+    }
+
 
     /**
      * 响应逆地理编码的批量请求
@@ -231,49 +208,22 @@ public class CRMMapViewUtil implements
                         RegeocodeAddress result = geocoderSearch.getFromLocation(query);// 设置同步逆地理编码请求
 
                         if (result != null && result.getFormatAddress() != null) {
-//                            aMap.addMarker(new MarkerOptions()
-//                                    .position(new LatLng(point.getLatitude(), point.getLongitude()))
-//                                    .icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory
-//                                            .decodeResource(getResources(), R.drawable.feiji2_market)))
-//                                    .title(result.getFormatAddress()));
-                            Log.e("yjbo-", "getAddresses: "+point.getLatitude()+"==="+point.getLongitude()+"==="+result.getFormatAddress());
+                            Log.e("yjbo-", "getAddresses: " + point.getLatitude() + "===" + point.getLongitude() + "===" + result.getFormatAddress());
                         }
                     } catch (AMapException e) {
-                        Message msg = msgHandler.obtainMessage();
-                        msg.arg1 = e.getErrorCode();
-                        msgHandler.sendMessage(msg);
+                        e.printStackTrace();
                     }
                 }
             });
         }
     }
 
-    /**
-     * 响应地理编码
-     */
-    public static void getLatlon(final String name) {
-        showDialog();
-
-        GeocodeQuery query = new GeocodeQuery(name, "010");// 第一个参数表示地址，第二个参数表示查询城市，中文或者中文全拼，citycode、adcode，
-        geocoderSearch.getFromLocationNameAsyn(query);// 设置同步地理编码请求
-    }
-
-    private Handler msgHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            ToastUtil.showerror(mContext, msg.arg1);
-        }
-    };
-
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        marker.showInfoWindow();
-        return false;
-    }
 
     /**
      * 显示进度条对话框
      */
-    public static void showDialog() {
+    public static void showDialog(Context context) {
+        progDialog = new ProgressDialog(context);
         progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progDialog.setIndeterminate(false);
         progDialog.setCancelable(true);
@@ -291,54 +241,25 @@ public class CRMMapViewUtil implements
     }
 
     /**
-     * 方法必须重写
+     * 查poi兴趣点
+     *
+     * @param context
+     * @param keyWord 关键词
+     * @param city    城市 不能为空
      */
-    public void onDestroyMap() {
+    public CRMMapViewUtil getPosList(Context context, String keyWord, String city) {
+        showDialog(context);
+        PoiSearch.Query query = new PoiSearch.Query(keyWord, "", city);
+        //keyWord表示搜索字符串，
+        //第二个参数表示POI搜索类型，二者选填其一，选用POI搜索类型时建议填写类型代码，码表可以参考下方（而非文字）
+        //cityCode表示POI搜索区域，可以是城市编码也可以是城市名称，也可以传空字符串，空字符串代表全国在全国范围内进行搜索
+        query.setPageSize(20);// 设置每页最多返回多少条poiitem
+        query.setPageNum(0);//设置查询页码
 
-        if (mExecutorService != null) {
-            mExecutorService.shutdownNow();
-        }
-        if (null != mlocationClient) {
-            mlocationClient.onDestroy();
-        }
-    }
-
-    View infoWindow = null;
-
-    //http://lbs.amap.com/api/android-sdk/guide/draw-on-map/draw-marker
-    @Override
-    public View getInfoWindow(Marker marker) {
-        if (infoWindow == null) {
-            infoWindow = LayoutInflater.from(mContext).inflate(
-                    R.layout.custom_info_window, null);
-        }
-        render(marker, infoWindow);
-        return infoWindow;
-    }
-
-    //http://lbs.amap.com/api/android-sdk/guide/draw-on-map/draw-marker
-    @Override
-    public View getInfoContents(Marker marker) {
-        return null;
-    }
-
-    AMap.OnInfoWindowClickListener listener = new AMap.OnInfoWindowClickListener() {
-
-        @Override
-        public void onInfoWindowClick(Marker arg0) {
-
-            arg0.setTitle("infowindow clicked");
-        }
-    };
-
-
-    /**
-     * 自定义infowinfow窗口
-     */
-    public void render(Marker marker, View view) {
-//如果想修改自定义Infow中内容，请通过view找到它并修改
-        ((TextView) view.findViewById(R.id.info_title)).setText("标题：" + marker.getTitle());
-        ((TextView) view.findViewById(R.id.info_content)).setText("内容：" + marker.getSnippet());
+        PoiSearch poiSearch = new PoiSearch(context, query);
+        poiSearch.setOnPoiSearchListener(this);
+        poiSearch.searchPOIAsyn();
+        return this;
     }
 
     //兴趣点返回的
@@ -346,14 +267,34 @@ public class CRMMapViewUtil implements
     public void onPoiSearched(PoiResult poiResult, int i) {
         dismissDialog();
         ArrayList<PoiItem> pois = poiResult.getPois();
-        for (int h = 0;h<pois.size();h++) {
-            Log.e("yjbo-", "onPoiSearched: " + pois.get(h).getAdName()+"=-="+pois.get(h).getBusinessArea());
+        List<MapClass> poiList = new ArrayList<>();
+        for (int h = 0; h < pois.size(); h++) {
+            PoiItem poiItem = pois.get(h);
+            MapClass mapClass = new MapClass(poiItem.getTitle(), "",
+                    poiItem.getLatLonPoint().getLatitude(), poiItem.getLatLonPoint().getLongitude());
+            poiList.add(mapClass);
         }
+        mapInterface.poiList(poiList);
     }
 
     @Override
     public void onPoiItemSearched(PoiItem poiItem, int i) {
-        dismissDialog();
-        Log.e("yjbo-", "onPoiItemSearched: " +poiItem.getAdName()+"=-="+poiItem.getBusinessArea());
+    }
+
+    //接口回调
+    MapInterface mapInterface;
+
+    public void setMapInterface(MapInterface mInterface) {
+        mapInterface = mInterface;
+    }
+
+    public interface MapInterface {
+        void curAddr(MapClass mapClass);//当前位置
+
+        void latlonToAddress(MapClass address);//经纬度转地址
+
+        void AddressTolatlon(MapClass address);//地址转经纬度
+
+        void poiList(List<MapClass> poiList);//获取兴趣点列表
     }
 }

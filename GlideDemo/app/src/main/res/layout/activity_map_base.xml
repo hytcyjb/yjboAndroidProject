@@ -1,29 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/caozuo_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
     <Button
-        android:id="@+id/geoButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"></Button>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="显示Marker"
+        android:id="@+id/caozuo_1"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示当前位置"
+            android:id="@+id/caozuo_2"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取兴趣点"
+            android:id="@+id/caozuo_3"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="画线"
+            android:id="@+id/caozuo_4"/>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/regeoButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"></Button>
-    <Button
-        android:id="@+id/geoDZButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="">
-    </Button>
     <com.yonyoucloud.AMap.CRMMapView
         android:id="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/caozuo_linear" />
 
-</LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/poi_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+</RelativeLayout>
