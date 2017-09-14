@@ -60,7 +60,7 @@ public class CRMMapView extends MapView implements AMap.OnMarkerClickListener, A
     private Marker regeoMarker;
     private Context mContext;
     private String addressName;
-
+    private Marker clickMarker;//点击的Marker
     private ExecutorService mExecutorService;
     //定位
     private AMapLocationClient mlocationClient;
@@ -96,7 +96,14 @@ public class CRMMapView extends MapView implements AMap.OnMarkerClickListener, A
         //绑定信息窗点击事件
         aMap.setOnInfoWindowClickListener(listener);
         aMap.setInfoWindowAdapter(this);//AMap类中
-
+        aMap.setOnMapClickListener(new AMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                if (clickMarker != null  && clickMarker.isInfoWindowShown()) {
+                    clickMarker.hideInfoWindow();
+                }
+            }
+        });
 //        setUpMap();
     }
 
@@ -218,6 +225,7 @@ public class CRMMapView extends MapView implements AMap.OnMarkerClickListener, A
         if (TextUtils.isEmpty(marker.getTitle())) {
             return true;
         } else {
+            clickMarker = marker;
             marker.showInfoWindow();
         }
         return false;
