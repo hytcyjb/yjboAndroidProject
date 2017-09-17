@@ -2,7 +2,9 @@ package com.yy.yjbo.yjboimagecanvas;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,11 +14,15 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.yy.yjbo.yjboimagecanvas.freeview.FreeViewActivity;
+import com.yy.yjbo.yjboimagecanvas.freeview.SpeechView;
 import com.yy.yjbo.yjboimagecanvas.horizonlist.HorizontalListView;
 import com.yy.yjbo.yjboimagecanvas.horizonlist.HorizontalListViewAdapter;
 
@@ -62,6 +68,21 @@ public class MainActivity extends AppCompatActivity {
         testGetLanguage();
         //testDialog();
         testContent();
+        testFreeView();
+    }
+
+    /**
+     * 绘制自由表单
+     * 2017年9月16日23:06:58
+     */
+    private void testFreeView() {
+        Button freeview = (Button) findViewById(R.id.skip_freeview);
+        freeview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, FreeViewActivity.class));
+            }
+        });
     }
 
     /**
@@ -278,6 +299,10 @@ public class MainActivity extends AppCompatActivity {
     public void testEdit() {
         cfViewTextEdit = (EditText) findViewById(R.id.cfViewTextEdit);
         mark = (TextView) findViewById(R.id.mark);
+
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(cfViewTextEdit.getWindowToken(),0);
+
         showPre();
         cfViewTextEdit.addTextChangedListener(new TextWatcher() {
             @Override

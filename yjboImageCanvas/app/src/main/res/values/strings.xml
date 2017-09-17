@@ -2,4 +2,132 @@
     <string name="app_name">yjboImageCanvas图像加框加圆角</string>
     <string name="dialog_title">我是dialog detail，是否取消我</string>
     <string name="dialog_title2">&#160;&#160;detail</string>
+    <string name="freedata">
+        {
+    "data": {
+        "version": "BeJson",
+        "headerlist": [
+            {
+                "headername": "表头分组1",
+                "style": "",
+                "itemlist": [
+                    {
+                        "itemkey": "字段唯一标识",
+                        "itemname": "客户编码",
+                        "itemtype": "string",
+                        "iseditbale": "Y",
+                        "isrequired": "Y",
+                        "ismultiselect": "",
+                        "precision": "",
+                        "isdisplay": "Y",
+                        "maxlenth": "",
+                        "referto": "",
+                        "editformula": "",
+                        "style": ""
+                    },
+                    {
+                        "itemkey": "字段唯一标识",
+                        "itemname": "客户名称",
+                        "itemtype": "string",
+                        "iseditbale": "Y",
+                        "isrequired": "Y",
+                        "ismultiselect": "",
+                        "precision": "",
+                        "isdisplay": "Y",
+                        "maxlenth": "",
+                        "referto": "",
+                        "editformula": "",
+                        "style": ""
+                    }
+                ]
+            },
+            {
+                "headername": "表头分组2",
+                "style": "",
+                "itemlist": [
+                    {
+                        "itemkey": "字段唯一标识",
+                        "itemname": "邮编",
+                        "itemtype": "string",
+                        "iseditbale": "Y",
+                        "isrequired": "Y",
+                        "ismultiselect": "",
+                        "precision": "",
+                        "isdisplay": "Y",
+                        "maxlenth": "",
+                        "referto": "",
+                        "editformula": "",
+                        "style": ""
+                    },
+                    {
+                        "itemkey": "字段唯一标识",
+                        "itemname": "电话",
+                        "itemtype": "string",
+                        "iseditbale": "Y",
+                        "isrequired": "Y",
+                        "ismultiselect": "",
+                        "precision": "",
+                        "isdisplay": "Y",
+                        "maxlenth": "",
+                        "referto": "",
+                        "editformula": "",
+                        "style": ""
+                    },
+                    {
+                        "itemkey": "字段唯一标识",
+                        "itemname": "传真",
+                        "itemtype": "string",
+                        "iseditbale": "Y",
+                        "isrequired": "Y",
+                        "ismultiselect": "",
+                        "precision": "",
+                        "isdisplay": "Y",
+                        "maxlenth": "",
+                        "referto": "",
+                        "editformula": "",
+                        "style": ""
+                    },
+                    {
+                        "itemkey": "字段唯一标识",
+                        "itemname": "公司网址",
+                        "itemtype": "string",
+                        "iseditbale": "Y",
+                        "isrequired": "Y",
+                        "ismultiselect": "",
+                        "precision": "",
+                        "isdisplay": "Y",
+                        "maxlenth": "",
+                        "referto": "",
+                        "editformula": "",
+                        "style": ""
+                    }
+                ]
+            },
+            {
+                "headername": "表头分组3",
+                "style": "",
+                "itemlist": [
+                    {
+                        "itemkey": "字段唯一标识",
+                        "itemname": "营业额",
+                        "itemtype": "string",
+                        "iseditbale": "Y",
+                        "isrequired": "Y",
+                        "ismultiselect": "",
+                        "precision": "",
+                        "isdisplay": "Y",
+                        "maxlenth": "",
+                        "referto": "",
+                        "editformula": "",
+                        "style": ""
+                    }
+                ]
+            }
+        ],
+        "bodylist": [ ],
+        "triggerlist": [ ],
+        "filterlist": [ ]
+    }
+}
+    </string>
 </resources>
