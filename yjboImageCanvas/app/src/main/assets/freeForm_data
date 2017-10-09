@@ -3,7 +3,7 @@
         "version": "BeJson", 
         "headerlist": [
             {
-                "headername": "表头分组1", 
+                "headername": "基本信息",
                 "style": "", 
                 "itemlist": [
                     {
@@ -37,7 +37,7 @@
                 ]
             }, 
             {
-                "headername": "表头分组2", 
+                "headername": "联系方式",
                 "style": "", 
                 "itemlist": [
                     {
@@ -99,7 +99,7 @@
                 ]
             }, 
             {
-                "headername": "表头分组3", 
+                "headername": "效益值",
                 "style": "", 
                 "itemlist": [
                     {

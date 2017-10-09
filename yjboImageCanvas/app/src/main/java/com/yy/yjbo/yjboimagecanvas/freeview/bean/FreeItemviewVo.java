@@ -1,4 +1,4 @@
-package com.yy.yjbo.yjboimagecanvas.freeview;
+package com.yy.yjbo.yjboimagecanvas.freeview.bean;
 
 /**
  * Created by Administrator on 2017/9/17.
@@ -28,6 +28,15 @@ public class FreeItemviewVo {
     private String referto;
     private String editformula;
     private String style;
+
+    public FreeItemviewVo() {
+    }
+
+    public FreeItemviewVo(String itemkey, String itemname, String itemtype) {
+        this.itemkey = itemkey;
+        this.itemname = itemname;
+        this.itemtype = itemtype;
+    }
 
     public String getItemkey() {
         return itemkey;
