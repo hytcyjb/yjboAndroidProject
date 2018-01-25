@@ -2,6 +2,7 @@ package com.yy.yjbo.yjboimagecanvas.freeview.util;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 
 import com.yy.yjbo.yjboimagecanvas.R;
@@ -46,5 +47,11 @@ public class Util {
             sb.delete(0, sb.length());
         }
         return sb.toString().trim();
+    }
+
+    //单元测试
+    public static void setNum(int i) {
+        System.out.println("我是" + i);
+        Log.e("yjbo:", "setNum: " + i);
     }
 }    

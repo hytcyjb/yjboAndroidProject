@@ -6,12 +6,18 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
@@ -28,6 +34,7 @@ import com.yy.yjbo.yjboimagecanvas.horizonlist.HorizontalListViewAdapter;
 
 import org.w3c.dom.Text;
 
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -69,6 +76,45 @@ public class MainActivity extends AppCompatActivity {
         //testDialog();
         testContent();
         testFreeView();
+        testTexthuluo();
+    }
+
+    //测试忽略的样式
+    private void testTexthuluo() {
+        final TextView texthuluo = (TextView) findViewById(R.id.texthuluo);
+        texthuluo.setText("为了增加收入，我家几乎年年要养蚕。一到春天一到春天2121323424324324354636363636363636363546444444，母亲就拿出几张粗草纸，铺在一只竹制的筛子里，上面撒上一片片新鲜嫩绿的桑叶，然后小心翼翼地将蚂蚁般幼小的蚕宝宝轻轻放在筛子里。几天过去了，蚕宝宝悄无声息地吃光了桑叶。我从竹篮子里抓起一把刚从树上摘下来的桑叶，细心地撒在筛子里，让蚕宝宝爬在桑叶上慢慢享用。眼看着蚕宝宝一天天长大，听着蚕食桑叶发出的“沙、沙”声，如同春雨润心田那样舒畅。不到一天，桑叶被蚕食光了，只剩下一根根脉络和一粒粒黑色蚕屎。这时，灰白色的蚕完全露了出来，连成一片，在筛子里爬动。");
+//        textUtil.toggleEllipsize(MainActivity.this,texthuluo,3,texthuluo.getText().toString(),"全部",R.color.colorPrimary,false);
+        texthuluo.setEllipsize(TextUtils.TruncateAt.END);
+        texthuluo.setMaxLines(3);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                String showText = texthuluo.getLayout().getText() + "";
+                Log.d("三行之后显示真实的", showText);
+//                String substring = showText.substring(0,showText.indexOf("\uFEFF")-5);
+                String replace = showText.replace("\uFEFF", "");
+                replace = replace.substring(0, replace.length() - 5);
+//                String replace = showText.replace("…", "…全部");
+                String temp = replace + "…全部";
+                SpannableStringBuilder ssb = new SpannableStringBuilder(temp);
+                ssb.setSpan(new ForegroundColorSpan(getResources().getColor
+                                (R.color.colorPrimary)),
+                        temp.length() - 2, temp.length(),    Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                texthuluo.setText(ssb);
+//                texthuluo.setText(replace + "…全部");
+                Log.d("三行之后显示截取的000===", replace + "…全部");
+//                Log.d("三行之后显示截取的",replace);
+            }
+        }, 500);
+        texthuluo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textStr = texthuluo.getText().toString();
+                Log.d("三行之后显示全部222", texthuluo.getLayout().getText() + "");
+                texthuluo.setText(textStr);
+            }
+        });
     }
 
     /**
@@ -300,8 +346,8 @@ public class MainActivity extends AppCompatActivity {
         cfViewTextEdit = (EditText) findViewById(R.id.cfViewTextEdit);
         mark = (TextView) findViewById(R.id.mark);
 
-        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(cfViewTextEdit.getWindowToken(),0);
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(cfViewTextEdit.getWindowToken(), 0);
 
         showPre();
         cfViewTextEdit.addTextChangedListener(new TextWatcher() {
