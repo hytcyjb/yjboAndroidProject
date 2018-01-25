@@ -7,7 +7,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
+<<<<<<< .merge_file_a07136
 import android.support.annotation.RequiresApi;
+=======
+import android.os.Message;
+>>>>>>> .merge_file_a08772
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -346,8 +350,11 @@ public class MainActivity extends AppCompatActivity {
         cfViewTextEdit = (EditText) findViewById(R.id.cfViewTextEdit);
         mark = (TextView) findViewById(R.id.mark);
 
+<<<<<<< .merge_file_a07136
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(cfViewTextEdit.getWindowToken(), 0);
+=======
+>>>>>>> .merge_file_a08772
 
         showPre();
         cfViewTextEdit.addTextChangedListener(new TextWatcher() {
@@ -366,6 +373,18 @@ public class MainActivity extends AppCompatActivity {
                 showPre();
             }
         });
+        TextView cfViewTextView = this.cfViewTextEdit;
+        cfViewTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("yjbo测试--", "MainActivity类： onClick: =="+"0000");
+            }
+        });
+
+        Message message = new Message();
+        message.what = 0;
+        handler.sendMessage(message);
+
     }
 
     private void showPre() {
@@ -376,4 +395,24 @@ public class MainActivity extends AppCompatActivity {
             mark.setVisibility(View.GONE);
         }
     }
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 0:
+                    //        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+//        imm.hideSoftInputFromWindow(cfViewTextEdit.getWindowToken(),0);
+                    if (cfViewTextEdit != null) {
+                        Log.e("yjbo测试--", "FFEditText类： setData: =="+cfViewTextEdit.getText());
+                        InputMethodManager inputManager1 = (InputMethodManager) cfViewTextEdit.getContext()
+                                .getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                        inputManager1.hideSoftInputFromWindow(cfViewTextEdit.getWindowToken(),
+                                InputMethodManager.HIDE_NOT_ALWAYS);
+                    }
+                    break;
+            }
+        }
+    };
 }

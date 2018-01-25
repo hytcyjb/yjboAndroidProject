@@ -13,9 +13,15 @@ import android.util.AttributeSet;
 public class FFEditText extends AppCompatEditText {
     public FFEditText(Context context) {
         super(context);
+        initView();
     }
 
     public FFEditText(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        initView();
+    }
+
+    private void initView() {
+        this.setEnabled(false);
     }
 }

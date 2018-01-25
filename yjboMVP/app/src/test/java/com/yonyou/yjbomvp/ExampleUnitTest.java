@@ -1,4 +1,4 @@
-package com.yy.yjbo.yjboimagecanvas;
+package com.yonyou.yjbomvp;
 
 
 import com.yy.yjbo.yjboimagecanvas.freeview.util.Util;
